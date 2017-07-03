@@ -1,0 +1,3 @@
+
+export const MEMBERS_LOADED = 'MEMBERS_LOADED';
+export const MEMBERS_ERROR  = 'MEMBERS_ERROR';
