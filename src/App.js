@@ -8,6 +8,7 @@ import {
   Route,
   // Link,
 } from 'react-router-dom';
+// import { RouteTransition } from 'react-router-transition';
 import Uvod from './components/uvod';
 
 
@@ -35,13 +36,17 @@ class App extends Component {
     return (
     <Router>
       <AppShell>
-        <h1>Terra Carphatica</h1>
+
+
+
         <Switch>
           <Route exact path="/" component={Uvod} />
           <Route path="/o-nas" component={Default} />
           <Route path="/stanovy" component={Default} />
           <Route path="/kontakt" component={Default} />
+          <Route path="/clenovia/:clen" component={Default} />
         </Switch>
+
       </AppShell>
     </Router>
     );
