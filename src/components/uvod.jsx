@@ -12,11 +12,18 @@ import {
 import {
   fetchMembers,
   fetchWithHeaders,
+  fetchCategories,
+  fetchCategory,
 } from '../http/fetch'
 import {
   membersLoaded,
   membersError,
-} from '../actionCreators/actionCreators';
+} from '../actionCreators/members';
+import {
+  categoriesLoaded,
+  categoriesError,
+  categoryId,
+} from '../actionCreators/categories';
 
 // const Navigation = styled.nav`
 //
@@ -75,7 +82,6 @@ const Header = styled.header`
 const PageTitle = styled.h1`
   ${'' /* margin-top: 1em; */}
   width: 100%;
-  font-size: 6em;
   font-weight: 400;
   color: white;
   text-align: center;
@@ -98,15 +104,22 @@ class Uvod extends Component {
     }
 
     try {
-      const members = await fetchMembers();
-      const headers = await fetchWithHeaders('2');
-      this.props.membersLoaded(members)
-      console.log(this.props.members.data)
-      console.log(headers);
+      // const members = await fetchMembers();
+      const [members, categories] = await Promise.all([fetchMembers(), fetchCategories()]);
+      this.props.membersLoaded(members);
+      this.props.categoriesLoaded(categories);
+      // console.log(this.props.members.data);
+
     }
     catch (err) {
-      this.props.membersError(err.message)
+      this.props.membersError(err.message);
+      this.props.categoriesError(err.message);
+      // console.log(this.props.membersState.error)
     }
+    console.log(this.props.categories.categoryToLoad);
+    this.props.categoryId('priroda');
+    console.log(this.props.categories.categoryToLoad.id);
+    const posts = fetchCategory(this.props.categories.categoryToLoad.id)
   }
 
   render() {
@@ -132,6 +145,12 @@ const mapStateToProps = state => ({
     data: state.membersState.members,
     loaded: state.membersState.loaded,
     error: state.membersState.error,
+  },
+  categories: {
+    data: state.categoriesState.categories,
+    loaded: state.categoriesState.loaded,
+    error: state.categoriesState.error,
+    categoryToLoad: state.categoriesState.categoryToLoad,
   }
 })
 
@@ -141,6 +160,15 @@ const mapDispatchToProps = dispatch => ({
   },
   membersError: (errMsg) => {
     dispatch(membersError(errMsg))
+  },
+  categoriesLoaded: (categories) => {
+    dispatch(categoriesLoaded(categories))
+  },
+  categoriesError: (errMsg) => {
+    dispatch(categoriesError(errMsg))
+  },
+  categoryId: (slug) => {
+    dispatch(categoryId(slug))
   }
 })
 

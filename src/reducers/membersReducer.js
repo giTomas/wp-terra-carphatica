@@ -7,7 +7,7 @@ const initialMembers = {
   members: [],
   loaded: false,
   error: false,
-}
+};
 
 function membersReducer(state=initialMembers, action) {
   switch (action.type) {

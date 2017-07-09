@@ -45,6 +45,10 @@ class App extends Component {
           <Route path="/stanovy" component={Default} />
           <Route path="/kontakt" component={Default} />
           <Route path="/clenovia/:clen" component={Default} />
+          <Route path="/priroda/:clanok" component={Default} />
+          <Route path="/historia/:clanok" component={Default} />
+          <Route path="/kultura/:clanok" component={Default} />
+          <Route path="/ochrana-prirody/:clanok" component={Default} />
         </Switch>
 
       </AppShell>

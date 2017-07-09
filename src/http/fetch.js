@@ -1,12 +1,14 @@
 import R from 'ramda';
 
-const URL = 'http://localhost//wp-json/wp/v2/'
+const URL = 'http://localhost//wp-json/wp/v2'
 const SECTIONS_URL = `${URL}`;
-const MEMBERS_URL = `${URL}users?fields=id,slug,acf,description,name,display`;
-const MEMBER_URL = `${URL}members/`
+const MEMBERS_URL = `${URL}/users?fields=id,slug,acf,description,name,display`;
+const MEMBER_URL = `${URL}/members/`
 // const MEMBERS_URL = `${URL}users/`
 const PRIRODA_ALL = `${URL}/posts?category=`;
-const MEMBERS_PER_PAGE = `${URL}members?_embed&per_page=2&page=`
+const MEMBERS_PER_PAGE = `${URL}/members?_embed&per_page=2&page=`
+const URL_CATEGORIES = `${URL}/categories?fields=id,slug,name`;
+const URL_CATEGORY = `${URL}/posts?_embed&categories=`
 
 async function fetchJson(url) {
   const response = await fetch(url);
@@ -37,6 +39,8 @@ async function fetchPost(url, id='') {
   }
 }
 
-export const fetchMembers = R.partial(fetchJson, [MEMBERS_URL])
-export const fetchSections = R.partial(fetchJson, [SECTIONS_URL])
-export const fetchWithHeaders = R.partial(fetchPost, ([MEMBERS_PER_PAGE]))
+export const fetchMembers     = R.partial(fetchJson, [MEMBERS_URL]);
+export const fetchSections    = R.partial(fetchJson, [SECTIONS_URL]);
+export const fetchCategories  = R.partial(fetchJson, [URL_CATEGORIES]);
+export const fetchWithHeaders = R.partial(fetchPost, [MEMBERS_PER_PAGE]);
+export const fetchCategory    = R.partial(fetchPost, [URL_CATEGORY])
