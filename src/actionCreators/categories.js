@@ -26,7 +26,6 @@ export function categoriesError(errorMsg) {
 };
 
 export function categoryId(slug) {
-  console.log(slug);
   return {
     type: CATEGORY_ID,
     slug,

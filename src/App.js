@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 // import { RouteTransition } from 'react-router-transition';
 import Uvod from './components/uvod';
+import Sekcia from './components/sekcia';
 
 
 const Default = ({match}) => (
@@ -26,7 +27,6 @@ const Default = ({match}) => (
 const AppShell = ({children}) => (
   <div>
     {children}
-    <h2>Nasa stranka</h2>
   </div>
 );
 
@@ -45,10 +45,11 @@ class App extends Component {
           <Route path="/stanovy" component={Default} />
           <Route path="/kontakt" component={Default} />
           <Route path="/clenovia/:clen" component={Default} />
-          <Route path="/priroda/:clanok" component={Default} />
-          <Route path="/historia/:clanok" component={Default} />
-          <Route path="/kultura/:clanok" component={Default} />
-          <Route path="/ochrana-prirody/:clanok" component={Default} />
+          <Route exact path="/sekcie/:sekcia" component={Sekcia} />
+          <Route exact path="/sekcie/priroda/:clanok" component={Default} />
+          <Route exact path="/sekcie/historia/:clanok" component={Default} />
+          <Route exact path="/sekcie/kultura/:clanok" component={Default} />
+          <Route exact path="/sekcie/ochrana-prirody/:clanok" component={Default} />
         </Switch>
 
       </AppShell>

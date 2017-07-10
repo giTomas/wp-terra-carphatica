@@ -2,6 +2,24 @@ import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
 } from '../actions/actions';
+import { map, filter, compose } from 'ramda';
+
+
+const checkDisplay = user => user.acf.display;
+
+const flattenUsers = user => ({
+  id: user.id,
+  slug: user.slug,
+  image: user.acf.user_image,
+  thumb: user.acf.user_image_thumbmail,
+  content: user.description,
+  name: user.name,
+});
+
+const addMembers = compose(
+  map(flattenUsers),
+  filter(checkDisplay)
+)
 
 const initialMembers = {
   members: [],
@@ -14,7 +32,7 @@ function membersReducer(state=initialMembers, action) {
     case MEMBERS_LOADED:
       return {
         ...state,
-        members: action.members,
+        members: addMembers(action.members),
         loaded: true,
         error: false,
       };

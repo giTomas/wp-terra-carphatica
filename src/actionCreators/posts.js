@@ -1,52 +1,34 @@
 import {
-  MEMBERS_LOADED,
-  MEMBERS_ERROR,
+  POSTS_LIST_LOADED,
+  POSTS_LIST_ERROR,
+  SET_POST_ID,
+  POSTS_LIST_RESET,
 } from '../actions/actions';
-import R from 'ramda';
 
-const flattenMembers = R.map((member) => ({
-  id: member.id,
-  slug: member.slug,
-  thumb: member.acf.user_iamge_thumb,
-  content: member.content.rendered,
-  name: member.title.rendered,
-}));
 
-const checkDisplay = user => user.acf.display;
-
-// const flattenUsers = R.map((user) => ({
-//   id: user.id,
-//   slug: user.slug,
-//   image: user.acf.user_image,
-//   thumb: user.acf.user_image_thumbmail,
-//   content: user.description,
-//   name: user.name,
-// }));
-
-const flattenUsers = user => ({
-  id: user.id,
-  slug: user.slug,
-  image: user.acf.user_image,
-  thumb: user.acf.user_image_thumbmail,
-  content: user.description,
-  name: user.name,
-});
-
-const addMembers = R.compose(
-  R.map(flattenUsers),
-  R.filter(checkDisplay)
-)
-
-export function membersLoaded(users) {
+export function postsListLoaded(posts) {
   return {
-    type: MEMBERS_LOADED,
-    members:  addMembers(users),
+    type: POSTS_LIST_LOADED,
+    payload:  posts,
   }
 };
 
-export function membersError(errorMsg) {
+export function postsListError(errorMsg) {
   return {
-    type: MEMBERS_ERROR,
-    error: errorMsg,
+    type: POSTS_LIST_ERROR,
+    payload: errorMsg,
   }
 };
+
+export function setPostId(slug) {
+  return {
+    type: SET_POST_ID,
+    payload: slug,
+  }
+}
+
+export function postsListReset() {
+  return {
+    type: POSTS_LIST_RESET,
+  }
+}

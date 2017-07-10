@@ -9,10 +9,10 @@ const initialCategories = {
   categories: [],
   loaded: false,
   error: false,
-  idToLoad: null,
+  categoryToLoad: null,
 }
 
-function CategoriesReducer(state=initialCategories, action) {
+function categoriesReducer(state=initialCategories, action) {
   switch (action.type) {
     case CATEGORIES_LOADED:
       return {
@@ -27,6 +27,8 @@ function CategoriesReducer(state=initialCategories, action) {
         error: action.error
       };
     case CATEGORY_ID:
+    console.log('reducer: ' + action.slug);
+    console.log(find(propEq('slug', action.slug))(state.categories));
       return {
         ...state,
         categoryToLoad: find(propEq('slug', action.slug))(state.categories),
@@ -36,4 +38,4 @@ function CategoriesReducer(state=initialCategories, action) {
   }
 }
 
-export default CategoriesReducer;
+export default categoriesReducer;

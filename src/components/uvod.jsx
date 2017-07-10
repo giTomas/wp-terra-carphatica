@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import R from 'ramda';
+import { map } from 'ramda';
 import { connect } from 'react-redux';
 import {
   // BrowserRouter as Router,
@@ -92,6 +92,12 @@ const PageTitle = styled.h1`
   }
 `;
 
+const Section = (content) => (
+  <div key={content.slug} className="section">
+    <Link to={`/sekcie/${content.slug}`}>{content.name}</Link>
+  </div>
+)
+
 class Uvod extends Component {
   // constructor(props) {
   //   super(props);
@@ -116,10 +122,10 @@ class Uvod extends Component {
       this.props.categoriesError(err.message);
       // console.log(this.props.membersState.error)
     }
-    console.log(this.props.categories.categoryToLoad);
-    this.props.categoryId('priroda');
-    console.log(this.props.categories.categoryToLoad.id);
-    const posts = fetchCategory(this.props.categories.categoryToLoad.id)
+    // this.props.categoryId('priroda');
+    // console.log(this.props.categories.categoryToLoad)
+    // const posts = await fetchCategory(this.props.categories.categoryToLoad.id)
+
   }
 
   render() {
@@ -129,12 +135,17 @@ class Uvod extends Component {
           <PageTitle>Terra Carpahtica</PageTitle>
           <Navigation />
         </Header>
-        {this.props.members.data.map(member => (
-          <figure key={member.slug} >
-            <img src={member.image} alt={member.name}/>
-            <figcaption><Link className="member__link" to={`/clenovia/${member.slug}`}>{member.name}</Link></figcaption>
-          </figure>
+        <section className="sections">
+          {map(Section, this.props.categories.data)}
+        </section>
+        <section className="sections">
+          {this.props.members.data.map(member => (
+            <figure key={member.slug} >
+              <img src={member.image} alt={member.name}/>
+              <figcaption><Link className="member__link" to={`/clenovia/${member.slug}`}>{member.name}</Link></figcaption>
+            </figure>
         ))}
+        </section>
       </div>
     )
   }
