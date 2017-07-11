@@ -2,9 +2,8 @@ import {
   POSTS_LIST_LOADED,
   POSTS_LIST_ERROR,
   POSTS_LIST_RESET,
-  SET_POST_ID,
-} from '../actions/actions';
-import { map, find, propEq } from 'ramda';
+} from '../actions/';
+import { map } from 'ramda';
 
 const initialState = {
   posts: [],
@@ -13,12 +12,10 @@ const initialState = {
   postId: null,
 }
 
-const flattenPosts = post => ({
-  author: post.author,
-  id: post.id,
-  slug: post.slug,
-  date: (new Date(post.date)).toLocaleDateString('sk'),
-  title: post.title.rendered,
+const preparePosts = ({author, id, slug, date, title}) => ({
+  author, id, slug,
+  date: (new Date(date)).toLocaleDateString('sk'),
+  title: title.rendered,
 });
 
 function postsList(state=initialState, action) {
@@ -26,7 +23,7 @@ function postsList(state=initialState, action) {
     case POSTS_LIST_LOADED:
       return {
         ...state,
-        posts: map(flattenPosts, action.payload),
+        posts: map(preparePosts, action.payload),
         loaded: true,
         error: false,
       };
@@ -35,11 +32,6 @@ function postsList(state=initialState, action) {
         ...state,
         error: action.payload,
       };
-    case SET_POST_ID:
-      return {
-        ...state,
-        postID: find(propEq('slug', action.payload))(state.posts),
-      }
     case POSTS_LIST_RESET:
       return {
         ...state,

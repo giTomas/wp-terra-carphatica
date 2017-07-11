@@ -1,9 +1,9 @@
 import {
   POSTS_LIST_LOADED,
   POSTS_LIST_ERROR,
-  SET_POST_ID,
+  // SET_POST_ID,
   POSTS_LIST_RESET,
-} from '../actions/actions';
+} from '../actions/';
 
 
 export function postsListLoaded(posts) {
@@ -20,12 +20,12 @@ export function postsListError(errorMsg) {
   }
 };
 
-export function setPostId(slug) {
-  return {
-    type: SET_POST_ID,
-    payload: slug,
-  }
-}
+// export function setPostId(slug) {
+//   return {
+//     type: SET_POST_ID,
+//     payload: slug,
+//   }
+// }
 
 export function postsListReset() {
   return {

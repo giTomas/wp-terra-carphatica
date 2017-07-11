@@ -3,9 +3,9 @@ export const MEMBERS_LOADED = 'MEMBERS_LOADED';
 export const MEMBERS_ERROR  = 'MEMBERS_ERROR';
 export const CATEGORIES_LOADED = 'CATEGORIES_LOADED';
 export const CATEGORIES_ERROR = 'CATEGORIES_ERROR';
-export const CATEGORY_ID = 'CATEGORY_ID';
+// export const CATEGORY_ID = 'CATEGORY_ID';
 
 export const POSTS_LIST_LOADED = 'POSTS_LIST_LOADED';
 export const POSTS_LIST_ERROR = 'POSTS_LIST_ERROR';
 export const POSTS_LIST_RESET = 'POST_LIST_RESET'
-export const SET_POST_ID = 'SET_POST_ID';
+// export const SET_POST_ID = 'SET_POST_ID';

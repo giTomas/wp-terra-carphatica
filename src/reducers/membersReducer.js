@@ -1,9 +1,8 @@
 import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
-} from '../actions/actions';
+} from '../actions/';
 import { map, filter, compose } from 'ramda';
-
 
 const checkDisplay = user => user.acf.display;
 
@@ -19,7 +18,7 @@ const flattenUsers = user => ({
 const addMembers = compose(
   map(flattenUsers),
   filter(checkDisplay)
-)
+);
 
 const initialMembers = {
   members: [],

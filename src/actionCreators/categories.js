@@ -1,8 +1,7 @@
 import {
   CATEGORIES_LOADED,
   CATEGORIES_ERROR,
-  CATEGORY_ID,
-} from '../actions/actions';
+} from '../actions/';
 import { map } from 'ramda';
 
 const flattenCategories = map(({id, slug, name}) => ({
@@ -24,10 +23,3 @@ export function categoriesError(errorMsg) {
     error: errorMsg,
   }
 };
-
-export function categoryId(slug) {
-  return {
-    type: CATEGORY_ID,
-    slug,
-  }
-}

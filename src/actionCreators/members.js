@@ -1,7 +1,7 @@
 import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
-} from '../actions/actions';
+} from '../actions/';
 
 export function membersLoaded(users) {
   return {

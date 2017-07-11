@@ -3,17 +3,12 @@ import styled from 'styled-components';
 import { map } from 'ramda';
 import { connect } from 'react-redux';
 import {
-  // BrowserRouter as Router,
-  // Switch,
-  // Route,
   Link,
   NavLink,
 } from 'react-router-dom';
 import {
   fetchMembers,
-  fetchWithHeaders,
   fetchCategories,
-  fetchCategory,
 } from '../http/fetch'
 import {
   membersLoaded,
@@ -22,19 +17,13 @@ import {
 import {
   categoriesLoaded,
   categoriesError,
-  categoryId,
 } from '../actionCreators/categories';
 
-// const Navigation = styled.nav`
-//
-// `;
 const NavigationList = styled.ul`
   list-style-type: none;
   display: flex;
 `;
-const NavigationListItem = styled.li`
 
-`;
 const NavigationLink = styled(NavLink)`
   font-family: var(--quicksand);
   color: white;
@@ -55,7 +44,7 @@ const Navigation = () => (
   </NavigationList>
 )
 const image1 = 'http://localhost/wp-content/uploads/2017/07/hero_karpaty.jpg';
-const image2 = 'http://localhost/wp-content/uploads/2017/07/hero_karpaty2.jpg'
+// const image2 = 'http://localhost/wp-content/uploads/2017/07/hero_karpaty2.jpg'
 
 const Header = styled.header`
   background-image: url(${image1});
@@ -66,7 +55,6 @@ const Header = styled.header`
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
-  ${'' /* align-items: flex-start; */}
   align-content: flex-end;
   &:before {
     position: absolute;
@@ -85,8 +73,6 @@ const PageTitle = styled.h1`
   font-weight: 400;
   color: white;
   text-align: center;
-  ${'' /* align-self: flex-end; */}
-  ${'' /* background-color: rgba(0,0,0,0.1) */}
   @media(max-width: 500px) {
     font-size: 3em;
   }
@@ -99,9 +85,6 @@ const Section = (content) => (
 )
 
 class Uvod extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   async componentDidMount() {
 
@@ -110,22 +93,14 @@ class Uvod extends Component {
     }
 
     try {
-      // const members = await fetchMembers();
       const [members, categories] = await Promise.all([fetchMembers(), fetchCategories()]);
       this.props.membersLoaded(members);
       this.props.categoriesLoaded(categories);
-      // console.log(this.props.members.data);
-
     }
     catch (err) {
       this.props.membersError(err.message);
       this.props.categoriesError(err.message);
-      // console.log(this.props.membersState.error)
     }
-    // this.props.categoryId('priroda');
-    // console.log(this.props.categories.categoryToLoad)
-    // const posts = await fetchCategory(this.props.categories.categoryToLoad.id)
-
   }
 
   render() {
@@ -161,7 +136,6 @@ const mapStateToProps = state => ({
     data: state.categoriesState.categories,
     loaded: state.categoriesState.loaded,
     error: state.categoriesState.error,
-    categoryToLoad: state.categoriesState.categoryToLoad,
   }
 })
 
@@ -178,9 +152,6 @@ const mapDispatchToProps = dispatch => ({
   categoriesError: (errMsg) => {
     dispatch(categoriesError(errMsg))
   },
-  categoryId: (slug) => {
-    dispatch(categoryId(slug))
-  }
 })
 
 export default connect(

@@ -1,38 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
-import {
-  fetchCategory,
-} from '../http/fetch'
-import {
-  categoryId,
-} from '../actionCreators/categories';
+// import { withRouter } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { fetchCategory, } from '../http/fetch'
 import {
   postsListLoaded,
   postsListError,
-  setPostId,
   postsListReset,
 } from '../actionCreators/posts';
+import { getSlugId } from '../selectors';
 
 class Sekcia extends Component {
 
-  async componentDidMount() {
-    const {sekcia} = this.props.match.params;
-    await this.props.categoryId(sekcia);
-    try {
 
-      const posts = await fetchCategory(this.props.categoryToLoad.id);
+
+  async componentDidMount() {
+
+    const { id } =  this.props.viewData[this.props.match.params.sekcia]
+    console.log(`id: ${id}`);
+    try {
+      const posts = await fetchCategory(id);
       this.props.postsListLoaded(posts);
     }
     catch (err) {
       this.props.postsListError(err.message);
       console.log(err.message);
     }
-    console.log(this.props.categoryToLoad);
   }
 
   componentWillUnmount() {
@@ -41,10 +34,10 @@ class Sekcia extends Component {
   }
 
   render() {
-    // console.log(this.props);
+    const { name } = this.props.viewData[this.props.match.params.sekcia]
     return (
       <div className="">
-        <h2>Sekcia {this.props.match.params.sekcia}</h2>
+        <h2>Sekcia {name}</h2>
         {this.props.posts.map(post => <h2 key={post.slug}>{post.title}</h2>)}
       </div>
     )
@@ -52,17 +45,13 @@ class Sekcia extends Component {
 }
 
 const mapStateToProps = state => ({
-  categoryToLoad: state.categoriesState.categoryToLoad,
   posts: state.postsList.posts,
   postsError: state.postsList.error,
   postsLoaded: state.postsList.loaded,
+  viewData: getSlugId(state.categoriesState.categories),
 });
 
 const mapDispatchToProps = dispatch => ({
-  categoryId: (slug) => {
-    console.log('action:'+slug)
-    dispatch(categoryId(slug));
-  },
   postsListLoaded: (posts) => {
     dispatch(postsListLoaded(posts));
   },
@@ -74,7 +63,11 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withRouter(connect(
+// export default withRouter(connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(Sekcia));
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Sekcia));
+)(Sekcia);

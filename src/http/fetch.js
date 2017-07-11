@@ -5,11 +5,11 @@ const SECTIONS_URL = `${URL}`;
 const MEMBERS_URL = `${URL}/users?fields=id,slug,acf,description,name,display`;
 const MEMBER_URL = `${URL}/members/`
 // const MEMBERS_URL = `${URL}users/`
-const PRIRODA_ALL = `${URL}/posts?category=`;
+// const PRIRODA_ALL = `${URL}/posts?category=`;
 const MEMBERS_PER_PAGE = `${URL}/members?_embed&per_page=2&page=`
 const URL_CATEGORIES = `${URL}/categories?fields=id,slug,name`;
 const URL_CATEGORY = `${URL}/posts?fields=id,slug,author,date,title&categories=`;
-const URL_POST = `${URL}/`;
+// const URL_POST = `${URL}/`;
 
 async function fetchJson(url) {
   const response = await fetch(url);
@@ -44,7 +44,6 @@ export async function fetchMember(id) {
 async function fetchPost(url, id='') {
   const response = await fetch(url+id);
   const data = await response.json();
-  const headers = await response.headers;
   if (!response.ok) {
     throw Error(response.statusText);
   }

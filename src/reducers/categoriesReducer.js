@@ -1,9 +1,7 @@
 import {
   CATEGORIES_LOADED,
   CATEGORIES_ERROR,
-  CATEGORY_ID,
-} from '../actions/actions';
-import { find, propEq } from 'ramda';
+} from '../actions/';
 
 const initialCategories = {
   categories: [],
@@ -26,13 +24,6 @@ function categoriesReducer(state=initialCategories, action) {
         ...state,
         error: action.error
       };
-    case CATEGORY_ID:
-    console.log('reducer: ' + action.slug);
-    console.log(find(propEq('slug', action.slug))(state.categories));
-      return {
-        ...state,
-        categoryToLoad: find(propEq('slug', action.slug))(state.categories),
-      }
     default:
       return state;
   }
