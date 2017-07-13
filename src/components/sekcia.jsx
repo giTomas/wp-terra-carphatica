@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { withRouter } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-import { fetchCategory, } from '../http/fetch'
+import { Link } from 'react-router-dom';
+import { fetchCategory, } from '../http/'
 import {
   postsListLoaded,
   postsListError,
   postsListReset,
 } from '../actionCreators/posts';
-import { getSlugId } from '../selectors';
+import { getSlugId, getIdAuthor } from '../selectors/';
 
 class Sekcia extends Component {
-
-
 
   async componentDidMount() {
 
@@ -36,9 +34,15 @@ class Sekcia extends Component {
   render() {
     const { name } = this.props.viewData[this.props.match.params.sekcia]
     return (
-      <div className="">
-        <h2>Sekcia {name}</h2>
-        {this.props.posts.map(post => <h2 key={post.slug}>{post.title}</h2>)}
+      <div className="post-list">
+        <h2 className="">Sekcia {name}</h2>
+        {this.props.posts.map(post =>
+          <div className="post-list__item" key={post.slug}>
+            <Link to={`/sekcie/${this.props.match.params.sekcia}/${post.slug}`}><h2 className="post--title">{post.title}</h2></Link>
+            <p className="article--date">{post.date}</p>
+            <h3 className="article--author">{this.props.authors[post.author]}</h3>
+          </div>
+        )}
       </div>
     )
   }
@@ -49,6 +53,7 @@ const mapStateToProps = state => ({
   postsError: state.postsList.error,
   postsLoaded: state.postsList.loaded,
   viewData: getSlugId(state.categoriesState.categories),
+  authors: getIdAuthor(state.membersState.members),
 });
 
 const mapDispatchToProps = dispatch => ({

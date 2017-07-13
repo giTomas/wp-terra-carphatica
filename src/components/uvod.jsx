@@ -9,7 +9,7 @@ import {
 import {
   fetchMembers,
   fetchCategories,
-} from '../http/fetch'
+} from '../http/'
 import {
   membersLoaded,
   membersError,
@@ -40,6 +40,9 @@ const Navigation = () => (
     </NavigationList>
     <NavigationList>
       <NavigationLink to="/stanovy">Stanovy</NavigationLink>
+    </NavigationList>
+    <NavigationList>
+      <a href="http://localhost/wp-content/uploads/2017/07/stanovy.pdf">Stanovy</a>
     </NavigationList>
   </NavigationList>
 )
