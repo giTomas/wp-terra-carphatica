@@ -8,27 +8,34 @@ import {
   postsListError,
   postsListReset,
 } from '../actionCreators/posts';
+import {
+  categoryLoader,
+  categoryReset,
+} from '../actionCreators/category';
 import { getSlugId, getIdAuthor } from '../selectors/';
 
 class Sekcia extends Component {
 
   async componentDidMount() {
 
-    const { id } =  this.props.viewData[this.props.match.params.sekcia]
-    console.log(`id: ${id}`);
-    try {
-      const posts = await fetchCategory(id);
-      this.props.postsListLoaded(posts);
-    }
-    catch (err) {
-      this.props.postsListError(err.message);
-      console.log(err.message);
-    }
+    const { id } =  this.props.viewData[this.props.match.params.sekcia];
+    this.props.fetchCategory(id);
+    // console.log(`id: ${id}`);
+    // try {
+    //   const posts = await fetchCategory(id);
+    //   this.props.postsListLoaded(posts);
+    // }
+    // catch (err) {
+    //   this.props.postsListError(err.message);
+    //   console.log(err.message);
+    // }
+
   }
 
   componentWillUnmount() {
-    console.log('unmount');
-    this.props.postsListReset();
+    // console.log('unmount');
+    // this.props.postsListReset();
+    this.props.categoryReset();
   }
 
   render() {
@@ -36,7 +43,7 @@ class Sekcia extends Component {
     return (
       <div className="post-list">
         <h2 className="">Sekcia {name}</h2>
-        {this.props.posts.map(post =>
+        {this.props.category.map(post =>
           <div className="post-list__item" key={post.slug}>
             <Link to={`/sekcie/${this.props.match.params.sekcia}/${post.slug}`}><h2 className="post--title">{post.title}</h2></Link>
             <p className="article--date">{post.date}</p>
@@ -49,23 +56,28 @@ class Sekcia extends Component {
 }
 
 const mapStateToProps = state => ({
-  posts: state.postsList.posts,
-  postsError: state.postsList.error,
-  postsLoaded: state.postsList.loaded,
+  // posts: state.postsList.posts,
+  // postsError: state.postsList.error,
+  // postsLoaded: state.postsList.loaded,
   viewData: getSlugId(state.categoriesState.categories),
   authors: getIdAuthor(state.membersState.members),
+  category: state.category.data,
 });
 
 const mapDispatchToProps = dispatch => ({
-  postsListLoaded: (posts) => {
-    dispatch(postsListLoaded(posts));
+  // postsListLoaded: (posts) => {
+  //   dispatch(postsListLoaded(posts));
+  // },
+  // postsListError: (errMsg) => {
+  //   dispatch(postsListError(errMsg));
+  // },
+  // postsListReset: () => {
+  //   dispatch(postsListReset());
+  // },
+  categoryReset: () => {
+    dispatch(categoryReset());
   },
-  postsListError: (errMsg) => {
-    dispatch(postsListError(errMsg));
-  },
-  postsListReset: () => {
-    dispatch(postsListReset())
-  }
+  fetchCategory: (id) => dispatch(categoryLoader(id))
 });
 
 // export default withRouter(connect(
