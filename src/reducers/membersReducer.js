@@ -1,8 +1,9 @@
+import { map, filter, compose } from 'ramda';
 import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
 } from '../actions/';
-import { map, filter, compose } from 'ramda';
+
 
 const checkDisplay = user => user.acf.display;
 

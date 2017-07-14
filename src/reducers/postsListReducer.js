@@ -9,7 +9,6 @@ const initialState = {
   posts: [],
   loaded: false,
   error: false,
-  postId: null,
 }
 
 const preparePosts = ({author, id, slug, date, title}) => ({

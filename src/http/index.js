@@ -9,8 +9,8 @@ import {
 } from './urls';
 
 
-export const fetchMembers     = R.partial(fetchJson, [MEMBERS_URL]);
-export const fetchSections    = R.partial(fetchJson, [SECTIONS_URL]);
-export const fetchCategories  = R.partial(fetchJson, [URL_CATEGORIES]);
-export const fetchWithHeaders = R.partial(fetchJson, [MEMBERS_PER_PAGE]);
-export const fetchCategory    = R.partial(fetchJson, [URL_CATEGORY])
+export const fetchMembers     = partial(fetchJson, [URL_MEMBERS]);
+export const fetchSections    = partial(fetchJson, [URL_SECTIONS]);
+export const fetchCategories  = partial(fetchJson, [URL_CATEGORIES]);
+export const fetchWithHeaders = partial(fetchJson, [MEMBERS_PER_PAGE]);
+export const fetchCategory    = partial(fetchJson, [URL_CATEGORY]);

@@ -7,6 +7,8 @@ import {
   postsListLoaded,
   postsListError,
   postsListReset,
+  categoryLoader,
+  categoryReset,
 } from '../actionCreators/posts';
 import { getSlugId, getIdAuthor } from '../selectors/';
 
@@ -66,6 +68,7 @@ const mapDispatchToProps = dispatch => ({
   postsListReset: () => {
     dispatch(postsListReset())
   }
+  fetchCategory: (id) => dispatch(fetchCategory(id))
 });
 
 // export default withRouter(connect(
