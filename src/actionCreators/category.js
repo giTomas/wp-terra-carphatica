@@ -19,22 +19,3 @@ export const categorySucces   = createActionSuccess(CATEGORY);
 export const categoryErrror   = createActionError(CATEGORY);
 export const categoryReset    = createActionReset(CATEGORY);
 export const categoryLoader   = createAsyncAction(CATEGORY, fetchCategory)
-
-// export const categoryLoading = bool => ({
-//   type: CATGEORY_LOADING,
-//   payload: bool,
-// })
-//
-// export const categoryErrror = errMsg => ({
-//   type: CATEGORY_ERROR,
-//   payload: errMsg,
-// });
-//
-// export const categorySuccess = data => ({
-//   type: CATEGORY_SUCCESS,
-//   payload: data,
-// })
-//
-// export const categoryReset = () => ({
-//   type: CATEGORY_RESET
-// });

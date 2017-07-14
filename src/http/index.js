@@ -12,5 +12,5 @@ import {
 export const fetchMembers     = partial(fetchJson, [URL_MEMBERS]);
 export const fetchSections    = partial(fetchJson, [URL_SECTIONS]);
 export const fetchCategories  = partial(fetchJson, [URL_CATEGORIES]);
-export const fetchWithHeaders = partial(fetchJson, [MEMBERS_PER_PAGE]);
+export const fetchWithHeaders = partial(fetchJson, [URL_MEMBERS_PER_PAGE]);
 export const fetchCategory    = partial(fetchJson, [URL_CATEGORY]);

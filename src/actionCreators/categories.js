@@ -6,21 +6,21 @@ import {
   CATEGORIES,
 } from '../actions/';
 import {
-  loading,
-  error,
-  success,
+  createActionLoading,
+  createActionError,
+  createActionSuccess,
 } from './genericActions';
 
-export const categoriesLoading = loading(CATEGORIES);
-export const catgeoriesError   = error(CATEGORIES);
-export const categoriesSucces  = success(CATEGORIES);
+export const categoriesLoading = createActionLoading(CATEGORIES);
+export const categoriesError   = createActionError(CATEGORIES);
+export const categoriesSucces  = createActionSuccess(CATEGORIES);
 
-// export function categoriesLoaded(categories) {
-//   return {
-//     type: CATEGORIES_LOADED,
-//     categories:  flattenCategories(categories),
-//   }
-// };
+export function categoriesLoaded(categories) {
+  return {
+    type: CATEGORIES_LOADED,
+    categories:  categories,
+  }
+};
 //
 // export function categoriesError(errorMsg) {
 //   return {

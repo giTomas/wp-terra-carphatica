@@ -6,7 +6,7 @@ export const CATEGORIES_LOADED = 'CATEGORIES_LOADED';
 // export const CATEGORY_ID = 'CATEGORY_ID';
 
 export const POSTS_LIST_LOADED = 'POSTS_LIST_LOADED';
-// export const POSTS_LIST_ERROR = 'POSTS_LIST_ERROR';
+export const POSTS_LIST_ERROR = 'POSTS_LIST_ERROR';
 export const POSTS_LIST_RESET = 'POST_LIST_RESET'
 // export const SET_POST_ID = 'SET_POST_ID';
 

@@ -4,7 +4,7 @@ import {
   // SET_POST_ID,
   POSTS_LIST_RESET,
   POSTS_LIST_SUCCESS,
-  POSTS_LIST_LOADING.
+  POSTS_LIST_LOADING,
 } from '../actions/';
 
 

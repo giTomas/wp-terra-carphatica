@@ -67,7 +67,7 @@ const mapDispatchToProps = dispatch => ({
   },
   postsListReset: () => {
     dispatch(postsListReset())
-  }
+  },
   fetchCategory: (id) => dispatch(fetchCategory(id))
 });
 

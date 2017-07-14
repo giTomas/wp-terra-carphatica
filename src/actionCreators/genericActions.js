@@ -6,13 +6,13 @@ import {
 } from '../actions/';
 // import { fetchJson } = '../http/';
 
-const createGenericAction = genericAction => specificator => payload => ({
-	type: `${specificator}${genericAction}`,
+const createGenericAction = genericAction => type => payload => ({
+	type: `${type}${genericAction}`,
 	payload: payload,
 });
 
-const createGenericActionWithouPayload = genericAction => specificator => ({
-	type: `${specificator}${genericAction}`,
+const createGenericActionWithouPayload = genericAction => type => ({
+	type: `${type}${genericAction}`,
 });
 
 export const createActionLoading 	= createGenericAction(_LOADING);
@@ -32,6 +32,7 @@ export function createAsyncAction (type, fn) {
 			dispatch(createActionLoading(type)(false));
 		}
 		catch (error) {
+			dispatch(createActionLoading(type)(false));
 			dispatch(createActionError(type)(error.message))
 		}
 	}
