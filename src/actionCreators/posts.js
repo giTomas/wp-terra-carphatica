@@ -3,6 +3,8 @@ import {
   POSTS_LIST_ERROR,
   // SET_POST_ID,
   POSTS_LIST_RESET,
+  POSTS_LIST_SUCCESS,
+  POSTS_LIST_LOADING.
 } from '../actions/';
 
 
@@ -20,15 +22,13 @@ export function postsListError(errorMsg) {
   }
 };
 
-// export function setPostId(slug) {
-//   return {
-//     type: SET_POST_ID,
-//     payload: slug,
-//   }
-// }
-
 export function postsListReset() {
   return {
     type: POSTS_LIST_RESET,
   }
 }
+
+export const postListSuccess = data => ({
+  type: POSTS_LIST_SUCCESS,
+  payload: data
+});

@@ -1,14 +1,9 @@
 import {
   CATEGORIES_LOADED,
   CATEGORIES_ERROR,
+  CATEGORIES_LOADING,
+  CATEGORIES_SUCCESS,
 } from '../actions/';
-import { map } from 'ramda';
-
-const flattenCategories = map(({id, slug, name}) => ({
-  id,
-  slug,
-  name,
-}));
 
 export function categoriesLoaded(categories) {
   return {
@@ -23,3 +18,13 @@ export function categoriesError(errorMsg) {
     error: errorMsg,
   }
 };
+
+export const categoriesLoading = bool => ({
+  type: CATEGORIES_LOADING,
+  payload: bool,
+});
+
+export const categoriesSuccess = data => ({
+  type: CATEGORIES_SUCCESS,
+  payload: data,
+});

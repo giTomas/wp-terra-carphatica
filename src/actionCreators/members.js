@@ -1,6 +1,8 @@
 import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
+  MEMBERS_LOADING,
+  MEMBERS_LOADING,
 } from '../actions/';
 
 export function membersLoaded(users) {
@@ -16,3 +18,13 @@ export function membersError(errorMsg) {
     error: errorMsg,
   }
 };
+
+export const membersLoading = bool => ({
+  type: MEMBERS_LOADING,
+  payload: bool,
+});
+
+export const membersSuccess = data => ({
+  type: MEMBERS_SUCCESS,
+  payload: data,
+});
