@@ -1,19 +1,17 @@
-import {
-  CATEGORIES_LOADED,
-  CATEGORIES_ERROR,
-  CATEGORIES_LOADING,
-  CATEGORIES_SUCCESS,
-  CATEGORIES,
-} from '../actions/';
+import { CATEGORIES, CATEGORIES_LOADED } from '../actions/';
 import {
   createActionLoading,
   createActionError,
   createActionSuccess,
+  createAsyncAction,
 } from './genericActions';
+import { fetchCategories } from '../http/';
+
 
 export const categoriesLoading = createActionLoading(CATEGORIES);
 export const categoriesError   = createActionError(CATEGORIES);
 export const categoriesSucces  = createActionSuccess(CATEGORIES);
+export const categoriesLoader  = createAsyncAction(CATEGORIES, fetchCategories);
 
 export function categoriesLoaded(categories) {
   return {
@@ -21,20 +19,3 @@ export function categoriesLoaded(categories) {
     categories:  categories,
   }
 };
-//
-// export function categoriesError(errorMsg) {
-//   return {
-//     type: CATEGORIES_ERROR,
-//     error: errorMsg,
-//   }
-// };
-//
-// export const categoriesLoading = bool => ({
-//   type: CATEGORIES_LOADING,
-//   payload: bool,
-// });
-//
-// export const categoriesSuccess = data => ({
-//   type: CATEGORIES_SUCCESS,
-//   payload: data,
-// });

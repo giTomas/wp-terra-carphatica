@@ -2,7 +2,9 @@ import { map, filter, compose } from 'ramda';
 import {
   MEMBERS_LOADED,
   MEMBERS_ERROR,
+  MEMBERS,
 } from '../actions/';
+import loaderReducer from './loaderReducer';
 
 
 const checkDisplay = user => user.acf.display;
@@ -20,6 +22,8 @@ const addMembers = compose(
   map(flattenUsers),
   filter(checkDisplay)
 );
+
+export const members = loaderReducer(MEMBERS, addMembers);
 
 const initialMembers = {
   members: [],

@@ -1,89 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { fetchCategory, } from '../http/'
-import {
-  postsListLoaded,
-  postsListError,
-  postsListReset,
-} from '../actionCreators/posts';
 import {
   categoryLoader,
   categoryReset,
 } from '../actionCreators/category';
-import { getSlugId, getIdAuthor } from '../selectors/';
+import { getIdAuthor, addData } from '../selectors/';
+
+const CategoryList = ({name, category, categorySlug, authors}) => (
+  <div className="category">
+    <h2 className="category-name">Sekcia {name}</h2>
+    {category.map(post => (
+      <div className="categoryArticle" key={post.slug}>
+        <Link to={`/sekcie/${categorySlug}/${post.slug}`}><h2 className="categoryArticle-title">{post.title}</h2></Link>
+        <p className="categoryArticle-date">{post.date}</p>
+        <h3 className="categoryArticle-author">{authors[post.author]}</h3>
+      </div>
+    ))}
+  </div>
+);
 
 class Sekcia extends Component {
 
   async componentDidMount() {
-
-    const { id } =  this.props.viewData[this.props.match.params.sekcia];
-    this.props.fetchCategory(id);
-    // console.log(`id: ${id}`);
-    // try {
-    //   const posts = await fetchCategory(id);
-    //   this.props.postsListLoaded(posts);
-    // }
-    // catch (err) {
-    //   this.props.postsListError(err.message);
-    //   console.log(err.message);
-    // }
-
+    this.props.fetchCategory(this.props.data.id);
   }
 
-  componentWillUnmount() {
-    // console.log('unmount');
-    // this.props.postsListReset();
-    this.props.categoryReset();
-  }
+  // componentWillUnmount() {
+  //   this.props.categoryReset();
+  // }
 
   render() {
-    const { name } = this.props.viewData[this.props.match.params.sekcia]
     return (
-      <div className="post-list">
-        <h2 className="">Sekcia {name}</h2>
-        {this.props.category.map(post =>
-          <div className="post-list__item" key={post.slug}>
-            <Link to={`/sekcie/${this.props.match.params.sekcia}/${post.slug}`}><h2 className="post--title">{post.title}</h2></Link>
-            <p className="article--date">{post.date}</p>
-            <h3 className="article--author">{this.props.authors[post.author]}</h3>
-          </div>
-        )}
-      </div>
+      <CategoryList
+        name={this.props.data.name}
+        category={this.props.category}
+        categorySlug={this.props.match.params.sekcia}
+        authors={this.props.authors}/>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  // posts: state.postsList.posts,
-  // postsError: state.postsList.error,
-  // postsLoaded: state.postsList.loaded,
-  viewData: getSlugId(state.categoriesState.categories),
-  authors: getIdAuthor(state.membersState.members),
+const mapStateToProps = (state, props) => ({
+  authors: getIdAuthor(state.members.data),
   category: state.category.data,
+  data: addData(state, props),
 });
 
 const mapDispatchToProps = dispatch => ({
-  // postsListLoaded: (posts) => {
-  //   dispatch(postsListLoaded(posts));
-  // },
-  // postsListError: (errMsg) => {
-  //   dispatch(postsListError(errMsg));
-  // },
-  // postsListReset: () => {
-  //   dispatch(postsListReset());
-  // },
   categoryReset: () => {
     dispatch(categoryReset());
   },
   fetchCategory: (id) => dispatch(categoryLoader(id))
 });
 
-// export default withRouter(connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(Sekcia));
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

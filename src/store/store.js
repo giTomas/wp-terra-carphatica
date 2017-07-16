@@ -1,15 +1,15 @@
 import {  createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import membersReducer from '../reducers/membersReducer';
-import categoriesReducer from '../reducers/categoriesReducer';
-import postsList from '../reducers/postsListReducer';
-import categoryReducer from '../reducers/categoryReducer';
+import { members } from '../reducers/membersReducer';
+import { categories } from '../reducers/categoriesReducer';
+import category from '../reducers/categoryReducer';
+import article from '../reducers/articleReducer';
 
 const rootReducer = combineReducers({
-  membersState: membersReducer,
-  categoriesState: categoriesReducer,
-  category: categoryReducer,
-  postsList,
+  category,
+  members,
+  categories,
+  article,
 });
 
 const store = createStore(

@@ -10,6 +10,7 @@ const initialState = {
   data: [],
   loading: false,
   error: false,
+  success: false,
 }
 
 function loaderReducer(type, fn=identity) {
@@ -17,10 +18,10 @@ function loaderReducer(type, fn=identity) {
     switch (action.type) {
       case `${type}${_SUCCESS}`:
         return {
-          ...state,
           data: fn(action.payload),
           loading: false,
-          error: null,
+          error: false,
+          success: true
         };
       case `${type}${_LOADING}`:
         return {

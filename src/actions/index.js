@@ -23,7 +23,7 @@ export const MEMBERS            = 'MEMBERS';
 export const MEMBER						  = 'MEMBER';
 export const CATEGORIES         = 'CATEGORIES';
 export const CATEGORY           = 'CATEGORY';
-export const POST 							= 'POST';
+export const ARTICLE 						= 'ARTICLE';
 
 //********************************************************
 export const MEMBERS_SUCCESS    = 'MEMBERS_SUCCESS';

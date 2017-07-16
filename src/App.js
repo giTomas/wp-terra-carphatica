@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import styled from 'styled-components';
-// import R from 'ramda';
-// import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +8,8 @@ import {
 // import { RouteTransition } from 'react-router-transition';
 import Uvod from './components/uvod';
 import Sekcia from './components/sekcia';
+import DataLoader from './components/dataLoader';
+import Clanok from './components/clanok';
 
 
 const Default = ({match}) => (
@@ -19,46 +18,28 @@ const Default = ({match}) => (
   </div>
 );
 
-// const AppHeader = styled.header`
-//
-// `;
-
-
-const AppShell = ({children}) => (
-  <div>
-    {children}
-  </div>
-);
-
-
 class App extends Component {
   render() {
     return (
-    <Router>
-      <AppShell>
-
-
-
-        <Switch>
-          <Route exact path="/" component={Uvod} />
-          <Route path="/o-nas" component={Default} />
-          <Route path="/stanovy" component={Default} />
-          <Route path="/kontakt" component={Default} />
-          <Route path="/clenovia/:clen" component={Default} />
-          <Route exact path="/sekcie/:sekcia" component={Sekcia} />
-          <Route exact path="/sekcie/priroda/:clanok" component={Default} />
-          <Route exact path="/sekcie/historia/:clanok" component={Default} />
-          <Route exact path="/sekcie/kultura/:clanok" component={Default} />
-          <Route exact path="/sekcie/ochrana-prirody/:clanok" component={Default} />
-        </Switch>
-
-      </AppShell>
-    </Router>
+      <DataLoader>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Uvod} />
+            <Route path="/o-nas" component={Default} />
+            <Route path="/stanovy" component={Default} />
+            <Route path="/kontakt" component={Default} />
+            <Route path="/clenovia/:clen" component={Default} />
+            <Route exact path="/sekcie/:sekcia" component={Sekcia} />
+            <Route exact path="/sekcie/priroda/:clanok" component={Clanok} />
+            <Route exact path="/sekcie/historia/:clanok" component={Clanok} />
+            <Route exact path="/sekcie/kultura/:clanok" component={Default} />
+            <Route exact path="/sekcie/ochrana-prirody/:clanok" component={Default} />
+          </Switch>
+        </Router>
+      </DataLoader>
     );
   }
 }
-
-
 
 
 export default App;
