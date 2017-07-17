@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {
   articleReset,
   articleLoader,
 } from '../actionCreators/article';
-import { addArticle, getIdAuthor } from '../selectors/';
+import { getIdAuthor } from '../selectors/';
 
 function createMarkup(markup) {
   return {
@@ -23,11 +23,13 @@ const Article = ({article}) => (
 class Clanok extends Component {
 
   async componentDidMount() {
-    this.props.fetchArticle(this.props.data.id);
+    // this.props.fetchArticle(this.props.match.params.clanok);
+    this.props.fetchArticle(this.props.match.params.clanok);
+
   }
 
   componentWillUnmount() {
-    // this.props.categoryReset();
+    this.props.articleReset();
   }
 
   render() {
@@ -40,11 +42,11 @@ class Clanok extends Component {
 const mapStateToProps = (state, props) => ({
   authors: getIdAuthor(state.members.data),
   article: state.article.data,
-  data: addArticle(state, props),
+  // data: addArticle(state, props),
 });
 
 const mapDispatchToProps = dispatch => ({
-  ArticleReset: () => {
+  articleReset: () => {
     dispatch(articleReset());
   },
   fetchArticle: (id) => dispatch(articleLoader(id))

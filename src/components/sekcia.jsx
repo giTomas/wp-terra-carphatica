@@ -26,9 +26,9 @@ class Sekcia extends Component {
     this.props.fetchCategory(this.props.data.id);
   }
 
-  // componentWillUnmount() {
-  //   this.props.categoryReset();
-  // }
+  componentWillUnmount() {
+    this.props.categoryReset();
+  }
 
   render() {
     return (

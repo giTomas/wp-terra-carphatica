@@ -4,7 +4,6 @@ import {
   _SUCCESS,
   _LOADING,
 } from '../actions/';
-// import { fetch } = '../http/';
 
 const createAction = genericAction => type => payload => ({
 	type: `${type}${genericAction}`,
@@ -29,7 +28,6 @@ export function createAsyncAction (type, fn) {
 		try {
 			const data = await fn(...args);
 			dispatch(createActionSuccess(type)(data));
-			// dispatch(createActionLoading(type)(false));
 		}
 		catch (error) {
 			dispatch(createActionLoading(type)(false));
