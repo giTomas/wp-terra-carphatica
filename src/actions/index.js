@@ -13,6 +13,7 @@ export const CATEGORIES         = 'CATEGORIES';
 export const CATEGORY           = 'CATEGORY';
 export const ARTICLE 						= 'ARTICLE';
 
-export const CATEGORY_HISTORY   = 'CATEGORY_HISTORY';
-export const CATEGORY_CULTURE   = 'CATEGORY_CULTURE';
-export const CATEGORY_NATURE    = 'CATEGORY_CULTURE'
+export const HISTORY            = 'HISTORIA';
+export const CULTURE            = 'KULTURA';
+export const NATURE             = 'PRIRODA';
+export const NATURE_PROTECTION  = 'OCHRANA-PRIRODY';

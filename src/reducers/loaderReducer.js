@@ -17,6 +17,7 @@ function loaderReducer(type, fn=identity) {
   return (state=initialState, action) => {
     switch (action.type) {
       case `${type}${_SUCCESS}`:
+        console.log(`action: ${type}${_SUCCESS}`);
         return {
           data: fn(action.payload),
           loading: false,

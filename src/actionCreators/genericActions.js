@@ -4,6 +4,7 @@ import {
   _SUCCESS,
   _LOADING,
 } from '../actions/';
+import { fetchCategory } from '../http/'
 
 const createAction = genericAction => type => payload => ({
 	type: `${type}${genericAction}`,
@@ -27,6 +28,23 @@ export function createAsyncAction (type, fn) {
 		dispatch(createActionLoading(type)(true));
 		try {
 			const data = await fn(...args);
+			dispatch(createActionSuccess(type)(data));
+		}
+		catch (error) {
+			dispatch(createActionLoading(type)(false));
+			dispatch(createActionError(type)(error.message))
+		}
+	}
+}
+
+export function createCategoryAsyncAction (type, id) {
+
+		return async (dispatch) => {
+		console.log(type)
+		dispatch(createActionError(type)(false));
+		dispatch(createActionLoading(type)(true));
+		try {
+			const data = await fetchCategory(id);
 			dispatch(createActionSuccess(type)(data));
 		}
 		catch (error) {

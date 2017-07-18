@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import {
   categoryLoader,
   categoryReset,
+  catLoader,
 } from '../actionCreators/category';
-import { getIdAuthor, addData } from '../selectors/';
+import { getIdAuthor, addData, createAction } from '../selectors/';
 
 const CategoryList = ({name, category, categorySlug, authors}) => (
   <div className="category">
@@ -24,10 +25,15 @@ class Sekcia extends Component {
 
   async componentDidMount() {
     this.props.fetchCategory(this.props.data.id);
+    this.props.fetch(
+      this.props.action,
+      this.props.data.id,
+    )
   }
 
   componentWillUnmount() {
     this.props.categoryReset();
+
   }
 
   render() {
@@ -45,13 +51,19 @@ const mapStateToProps = (state, props) => ({
   authors: getIdAuthor(state.members.data),
   category: state.category.data,
   data: addData(state, props),
+  action: createAction(state, props),
+  history: state.history.data,
+  nature: state.nature.data,
+  natureProtection: state.natureProtection.data,
+  culture: state.culture.data,
 });
 
 const mapDispatchToProps = dispatch => ({
   categoryReset: () => {
     dispatch(categoryReset());
   },
-  fetchCategory: (id) => dispatch(categoryLoader(id))
+  fetchCategory: (id) => dispatch(categoryLoader(id)),
+  fetch: (category, id) => dispatch(catLoader(category, id))
 });
 
 export default connect(

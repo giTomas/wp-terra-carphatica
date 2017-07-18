@@ -49,3 +49,8 @@ export const checkSuccess = createSelector(
   [getCategoriesSucces, getMembersSuccess],
   (categories, members) => categories && members
 )
+
+export const createAction = createSelector(
+  [getSlugCategory],
+  (slug) => slug.toUpperCase()
+);

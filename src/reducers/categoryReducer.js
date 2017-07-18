@@ -1,5 +1,11 @@
 import { map } from 'ramda';
-import { CATEGORY } from '../actions/';
+import {
+  CATEGORY,
+  NATURE,
+  NATURE_PROTECTION,
+  CULTURE,
+  HISTORY,
+ } from '../actions/';
 import loaderReducer from './loaderReducer';
 
 const prepareCategories = ({author, id, slug, date, title}) => ({
@@ -10,6 +16,11 @@ const prepareCategories = ({author, id, slug, date, title}) => ({
 
 const mapCategories = map(prepareCategories);
 
-const category = loaderReducer(CATEGORY, mapCategories);
+export const nature           = loaderReducer(NATURE, mapCategories)
+export const natureProtection = loaderReducer(NATURE_PROTECTION, mapCategories)
+export const culture          = loaderReducer(CULTURE, mapCategories)
+export const history          = loaderReducer(HISTORY, mapCategories)
+
+const category                = loaderReducer(CATEGORY, mapCategories);
 
 export default category;

@@ -2,7 +2,7 @@ import {  createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import members from '../reducers/membersReducer';
 import categories from '../reducers/categoriesReducer';
-import category from '../reducers/categoryReducer';
+import category, {nature, culture, history, natureProtection } from '../reducers/categoryReducer';
 import article from '../reducers/articleReducer';
 
 const rootReducer = combineReducers({
@@ -10,6 +10,10 @@ const rootReducer = combineReducers({
   members,
   categories,
   article,
+  nature,
+  culture,
+  history,
+  natureProtection,
 });
 
 const store = createStore(
