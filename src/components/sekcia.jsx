@@ -24,16 +24,22 @@ const CategoryList = ({name, category, categorySlug, authors}) => (
 class Sekcia extends Component {
 
   async componentDidMount() {
+    function getHash(str) {
+      return str.replace(/-\S+/, '');
+    }
+
+    const slug = getHash(this.props.match.params.sekcia);
     this.props.fetchCategory(this.props.data.id);
-    this.props.fetch(
-      this.props.action,
-      this.props.data.id,
-    )
+    if (!this.props[slug].success) {    
+      this.props.fetch(
+        this.props.action,
+        this.props.data.id,
+      )
+    }
   }
 
   componentWillUnmount() {
     this.props.categoryReset();
-
   }
 
   render() {
@@ -52,10 +58,10 @@ const mapStateToProps = (state, props) => ({
   category: state.category.data,
   data: addData(state, props),
   action: createAction(state, props),
-  history: state.history.data,
-  nature: state.nature.data,
-  natureProtection: state.natureProtection.data,
-  culture: state.culture.data,
+  historia: state.historia,
+  priroda: state.priroda,
+  ochrana: state.ochrana,
+  kultura: state.kultura,
 });
 
 const mapDispatchToProps = dispatch => ({

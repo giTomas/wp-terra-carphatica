@@ -16,4 +16,4 @@ export const ARTICLE 						= 'ARTICLE';
 export const HISTORY            = 'HISTORIA';
 export const CULTURE            = 'KULTURA';
 export const NATURE             = 'PRIRODA';
-export const NATURE_PROTECTION  = 'OCHRANA-PRIRODY';
+export const NATURE_PROTECTION  = 'OCHRANA';

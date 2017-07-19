@@ -8,10 +8,7 @@ import { checkSuccess } from '../selectors/';
 class DataLoader extends Component {
 
   async componentDidMount() {
-    if (this.props.success) {
-      return;
-    }
-    this.props.fetchMembersCategories();
+    !this.props.success && this.props.fetchMembersCategories();
   }
 
   render() {
