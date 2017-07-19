@@ -10,7 +10,6 @@ export const _RESET             = '_RESET';
 export const MEMBERS            = 'MEMBERS';
 export const MEMBER						  = 'MEMBER';
 export const CATEGORIES         = 'CATEGORIES';
-export const CATEGORY           = 'CATEGORY';
 export const ARTICLE 						= 'ARTICLE';
 
 export const HISTORY            = 'HISTORIA';

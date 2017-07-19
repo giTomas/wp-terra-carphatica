@@ -52,5 +52,10 @@ export const checkSuccess = createSelector(
 
 export const createAction = createSelector(
   [getSlugCategory],
-  (slug) => slug.toUpperCase()
+  (slug) => slug.replace(/-\S+/, '').toUpperCase()
 );
+
+export const createHash = createSelector(
+  [getSlugCategory],
+  (slug) => slug.replace(/-\S+/, '')
+)

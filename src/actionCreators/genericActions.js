@@ -39,8 +39,8 @@ export function createAsyncAction (type, fn) {
 
 export function createCategoryAsyncAction (type, id) {
 
-		return async (dispatch) => {
-		console.log(type)
+	return async (dispatch) => {
+
 		dispatch(createActionError(type)(false));
 		dispatch(createActionLoading(type)(true));
 		try {

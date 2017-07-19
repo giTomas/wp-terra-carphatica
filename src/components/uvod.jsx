@@ -1,40 +1,26 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { PureComponent } from 'react';
 import { map } from 'ramda';
 import { connect } from 'react-redux';
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
-
-const NavigationList = styled.ul`
-  list-style-type: none;
-  display: flex;
-`;
-
-const NavigationLink = styled(NavLink)`
-  color: white;
-  text-decoration: none;
-`;
-
-const Navigation = () => (
-  <NavigationList>
-    <NavigationList>
-      <NavigationLink to="/">Úvod</NavigationLink>
-    </NavigationList>
-    <NavigationList>
-      <NavigationLink to="/o-nas">O nás</NavigationLink>
-    </NavigationList>
-    <NavigationList>
-      <a href="http://localhost/wp-content/uploads/2017/07/stanovy.pdf">Stanovy</a>
-    </NavigationList>
-  </NavigationList>
-)
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <header className="pageHeader">
-    <h1 className="pageTitle">Terra Carphatica</h1>
-    <Navigation />
+    <div className="pageTitle">
+      <h1>Terra Carphatica</h1>
+    </div>
+    <nav className="navigation">
+      <ul className="navigationList">
+        <li className="navigationItem">
+          <Link className="navigationLink" to="/">Úvod</Link>
+        </li>
+        <li className="navigationItem">
+          <Link className="navigationLink" to="/o-nas">O nás</Link>
+        </li>
+        <li className="navigationItem">
+          <a className="navigationLink" href="http://localhost/wp-content/uploads/2017/07/stanovy.pdf">Stanovy</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 );
 
@@ -44,7 +30,7 @@ const Section = (content) => (
   </div>
 )
 
-class Uvod extends Component {
+class Uvod extends PureComponent {
 
   render() {
     return (

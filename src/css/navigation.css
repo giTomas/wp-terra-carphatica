@@ -1,0 +1,12 @@
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.navigationList {
+  list-style-type: none;
+  display: flex; }
+
+.navigationLink {
+  color: white;
+  text-decoration: none; }

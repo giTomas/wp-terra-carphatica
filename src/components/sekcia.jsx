@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  categoryLoader,
-  categoryReset,
-  catLoader,
-} from '../actionCreators/category';
-import { getIdAuthor, addData, createAction } from '../selectors/';
+import { catLoader } from '../actionCreators/category';
+import { getIdAuthor, addData, createAction, createHash } from '../selectors/';
 
 const CategoryList = ({name, category, categorySlug, authors}) => (
   <div className="category">
@@ -24,13 +20,8 @@ const CategoryList = ({name, category, categorySlug, authors}) => (
 class Sekcia extends Component {
 
   async componentDidMount() {
-    function getHash(str) {
-      return str.replace(/-\S+/, '');
-    }
 
-    const slug = getHash(this.props.match.params.sekcia);
-    this.props.fetchCategory(this.props.data.id);
-    if (!this.props[slug].success) {    
+    if (!this.props[this.props.hash].success) {
       this.props.fetch(
         this.props.action,
         this.props.data.id,
@@ -38,15 +29,11 @@ class Sekcia extends Component {
     }
   }
 
-  componentWillUnmount() {
-    this.props.categoryReset();
-  }
-
   render() {
     return (
       <CategoryList
         name={this.props.data.name}
-        category={this.props.category}
+        category={this.props[this.props.hash].data}
         categorySlug={this.props.match.params.sekcia}
         authors={this.props.authors}/>
     )
@@ -54,21 +41,17 @@ class Sekcia extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
+  hash: createHash(state, props),
   authors: getIdAuthor(state.members.data),
-  category: state.category.data,
   data: addData(state, props),
   action: createAction(state, props),
-  historia: state.historia,
-  priroda: state.priroda,
-  ochrana: state.ochrana,
-  kultura: state.kultura,
+  historia: state.sekcie.historia,
+  priroda: state.sekcie.priroda,
+  ochrana: state.sekcie.ochrana,
+  kultura: state.sekcie.kultura,
 });
 
 const mapDispatchToProps = dispatch => ({
-  categoryReset: () => {
-    dispatch(categoryReset());
-  },
-  fetchCategory: (id) => dispatch(categoryLoader(id)),
   fetch: (category, id) => dispatch(catLoader(category, id))
 });
 

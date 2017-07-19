@@ -5,15 +5,18 @@ import categories from '../reducers/categoriesReducer';
 import category, {priroda, kultura, historia, ochrana } from '../reducers/categoryReducer';
 import article from '../reducers/articleReducer';
 
-const rootReducer = combineReducers({
-  category,
-  members,
-  categories,
-  article,
+const sekcie = combineReducers({
   priroda,
   kultura,
   historia,
   ochrana,
+})
+
+const rootReducer = combineReducers({
+  members,
+  categories,
+  article,
+  sekcie
 });
 
 const store = createStore(

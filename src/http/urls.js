@@ -7,7 +7,7 @@ export const URL_CATEGORIES = `${URL}/categories?fields=id,slug,name`;
 // nacitat podla id
 export const URL_CATEGORY = `${URL}/posts?fields=id,slug,author,date,title&categories=`;
 // podla slugu? tot asi nepojde
-export const URL_CATEGORY = `${URL}/posts?fields=id,slug,author,date,title&categories?slug=`;
+// export const URL_CATEGORY = `${URL}/posts?fields=id,slug,author,date,title&categories?slug=`;
 
 
 // need to test this
