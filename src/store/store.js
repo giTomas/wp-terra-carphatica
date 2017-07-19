@@ -1,14 +1,24 @@
-import {  createStore, combineReducers } from 'redux';
-import membersReducer from '../reducers/membersReducer';
-import categoriesReducer from '../reducers/categoriesReducer';
-import postsList from '../reducers/postsListReducer';
+import {  createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import members from '../reducers/membersReducer';
+import categories from '../reducers/categoriesReducer';
+import category, {nature, culture, history, natureProtection } from '../reducers/categoryReducer';
+import article from '../reducers/articleReducer';
 
-const reducers = combineReducers({
-  membersState: membersReducer,
-  categoriesState: categoriesReducer,
-  postsList,
+const rootReducer = combineReducers({
+  category,
+  members,
+  categories,
+  article,
+  nature,
+  culture,
+  history,
+  natureProtection,
 });
 
-const store = createStore(reducers);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk),
+);
 
 export default store;

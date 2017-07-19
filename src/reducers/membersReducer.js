@@ -1,8 +1,6 @@
-import {
-  MEMBERS_LOADED,
-  MEMBERS_ERROR,
-} from '../actions/';
 import { map, filter, compose } from 'ramda';
+import { MEMBERS }              from '../actions/';
+import loaderReducer            from './loaderReducer';
 
 const checkDisplay = user => user.acf.display;
 
@@ -20,29 +18,6 @@ const addMembers = compose(
   filter(checkDisplay)
 );
 
-const initialMembers = {
-  members: [],
-  loaded: false,
-  error: false,
-};
+const members = loaderReducer(MEMBERS, addMembers);
 
-function membersReducer(state=initialMembers, action) {
-  switch (action.type) {
-    case MEMBERS_LOADED:
-      return {
-        ...state,
-        members: addMembers(action.members),
-        loaded: true,
-        error: false,
-      };
-    case MEMBERS_ERROR:
-      return {
-        ...state,
-        error: action.error
-      };
-    default:
-      return state;
-  }
-}
-
-export default membersReducer;
+export default members;

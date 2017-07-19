@@ -1,57 +1,15 @@
-import R from 'ramda';
+import { partial } from 'ramda';
+import { fetchJson } from './fetch';
+import {
+	URL_MEMBERS,
+	URL_SECTIONS,
+	URL_CATEGORIES,
+	URL_CATEGORY,
+	URL_ARTICLE,
+} from './urls';
 
-const URL = 'http://localhost/wp-json/wp/v2'
-const SECTIONS_URL = `${URL}`;
-const MEMBERS_URL = `${URL}/users?fields=id,slug,acf,description,name,display`;
-// const MEMBER_URL = `${URL}/members/`
-// const MEMBERS_URL = `${URL}users/`
-// const PRIRODA_ALL = `${URL}/posts?category=`;
-const MEMBERS_PER_PAGE = `${URL}/members?_embed&per_page=2&page=`
-const URL_CATEGORIES = `${URL}/categories?fields=id,slug,name`;
-const URL_CATEGORY = `${URL}/posts?fields=id,slug,author,date,title&categories=`;
-// const URL_POST = `${URL}/`;
-
-async function fetchJson(url, id='') {
-  const response = await fetch(url+id);
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-
-  return data;
-}
-
-// export async function fetchMember(id) {
-//   const url = `${MEMBER_URL}${id}`;
-//   return fetchJson(url);
-// }
-
-// async function fetchPost(url, id='') {
-//   const response = await fetch(url+id);
-//   const data = await response.json();
-//   const headers = await response.headers;
-//   if (!response.ok) {
-//     throw Error(response.statusText);
-//   }
-//   return {
-//     data,
-//     total: headers.get('X-WP-Total'),
-//     pages: headers.get('X-WP-TotalPages'),
-//   }
-// }
-// 
-// async function fetchPost(url, id='') {
-//   const response = await fetch(url+id);
-//   const data = await response.json();
-//   if (!response.ok) {
-//     throw Error(response.statusText);
-//   }
-//   return data;
-// }
-
-export const fetchMembers     = R.partial(fetchJson, [MEMBERS_URL]);
-export const fetchSections    = R.partial(fetchJson, [SECTIONS_URL]);
-export const fetchCategories  = R.partial(fetchJson, [URL_CATEGORIES]);
-export const fetchWithHeaders = R.partial(fetchJson, [MEMBERS_PER_PAGE]);
-export const fetchCategory    = R.partial(fetchJson, [URL_CATEGORY])
+export const fetchMembers     = partial(fetchJson, [URL_MEMBERS]);
+export const fetchSections    = partial(fetchJson, [URL_SECTIONS]);
+export const fetchCategories  = partial(fetchJson, [URL_CATEGORIES]);
+export const fetchCategory    = partial(fetchJson, [URL_CATEGORY]);
+export const fetchArticle     = partial(fetchJson, [URL_ARTICLE]);

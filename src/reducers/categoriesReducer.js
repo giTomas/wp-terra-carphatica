@@ -1,32 +1,11 @@
-import {
-  CATEGORIES_LOADED,
-  CATEGORIES_ERROR,
-} from '../actions/';
+import { filter }     from 'ramda';
+import { CATEGORIES } from '../actions/';
+import loaderReducer  from './loaderReducer';
 
-const initialCategories = {
-  categories: [],
-  loaded: false,
-  error: false,
-  categoryToLoad: null,
-}
+// remove category 'nezaradene'
+const notId    = obj => obj.id !== 1;
+const filterId = filter(notId)
 
-function categoriesReducer(state=initialCategories, action) {
-  switch (action.type) {
-    case CATEGORIES_LOADED:
-      return {
-        ...state,
-        categories: action.categories,
-        loaded: true,
-        error: false,
-      };
-    case CATEGORIES_ERROR:
-      return {
-        ...state,
-        error: action.error
-      };
-    default:
-      return state;
-  }
-}
+const categories = loaderReducer(CATEGORIES, filterId);
 
-export default categoriesReducer;
+export default  categories;
