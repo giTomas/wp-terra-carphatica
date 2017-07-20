@@ -34,7 +34,7 @@ class Uvod extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="page">
         <Header />
         <section className="sections">
           {map(Section, this.props.categories.data)}
