@@ -1,8 +1,9 @@
 import {  createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import members from '../reducers/membersReducer';
+import member from '../reducers/memberReducer';
 import categories from '../reducers/categoriesReducer';
-import category, {priroda, kultura, historia, ochrana } from '../reducers/categoryReducer';
+import {priroda, kultura, historia, ochrana } from '../reducers/categoryReducer';
 import article from '../reducers/articleReducer';
 
 const sekcie = combineReducers({
@@ -14,6 +15,7 @@ const sekcie = combineReducers({
 
 const rootReducer = combineReducers({
   members,
+  member,
   categories,
   article,
   sekcie

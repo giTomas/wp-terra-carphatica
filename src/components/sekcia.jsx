@@ -14,15 +14,15 @@ const articleListItem = (post) => (
   </li>
 );
 
-const CategoryList = ({name, list}) => (
-  <article className="category">
-    <header><h2 className="categoryName">Sekcia {name}</h2></header>
-    <ul className="articleList">
-      {map(articleListItem, list)}
-    </ul>
-  </article>
-);
-const CategoryList2 = (name, list) => (
+// const CategoryList = ({name, list}) => (
+//   <article className="category">
+//     <header><h2 className="categoryName">Sekcia {name}</h2></header>
+//     <ul className="articleList">
+//       {map(articleListItem, list)}
+//     </ul>
+//   </article>
+// );
+const CategoryList = (name, list) => (
   <article className="category">
     <header><h2 className="categoryName">Sekcia {name}</h2></header>
     <ul className="articleList">
@@ -31,7 +31,7 @@ const CategoryList2 = (name, list) => (
   </article>
 );
 
-const curriedCategoryList = curry(CategoryList2);
+const curriedCategoryList = curry(CategoryList);
 
 const addToObj = curry((categorySlug, authors, obj) => ({
   ...obj,
@@ -59,21 +59,15 @@ class Sekcia extends PureComponent {
       this.props.match.params.sekcia,
       this.props.authors
     );
-    // const listOfArticles = map(addAuthSlug, this.props[this.props.hash].data);
-
     const listComposed = compose(
       curriedCategoryList(this.props.data.name),
       map(addAuthSlug),
     )
 
     return (
-      // <CategoryList
-      //   name={this.props.data.name}
-      //   list={listOfArticles}
-      // />
-    <div className="wrapper">
-      {listComposed(this.props[this.props.hash].data)}
-    </div>
+      <div className="wrapper">
+        {listComposed(this.props[this.props.hash].data)}
+      </div>
     )
   }
 }

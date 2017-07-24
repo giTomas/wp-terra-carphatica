@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
+import { createMarkup } from '../helpers/';
 import {
   articleReset,
   articleLoader,
 } from '../actionCreators/article';
 import { getIdAuthor } from '../selectors/';
 
-function createMarkup(markup) {
-  return {
-    __html: markup,
-  }
-}
+
 
 const Article = ({article}) => (
   <div>
