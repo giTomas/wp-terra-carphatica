@@ -6,8 +6,6 @@ import {
 import Member from '../presentational/member';
 import ComponentWithLoading from './componentWithLoading';
 
-const WrappedClen = ComponentWithLoading(Member);
-
 const mapStateToProps = (state, props) => ({
   member: state.member,
 });
@@ -18,6 +16,8 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchResource: (id) => dispatch(memberLoader(id))
 });
+
+const WrappedClen = ComponentWithLoading(Member);
 
 export default connect(
   mapStateToProps,
