@@ -16,7 +16,7 @@ const Member = ({member}) => (
 class Clen extends PureComponent {
 
   async componentDidMount() {
-    this.props.fetchMember(this.props.match.params.clen);
+    this.props.fetchMember(this.props.match.params.slug);
   }
 
   componentWillUnmount() {

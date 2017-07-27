@@ -20,7 +20,7 @@ const Article = ({article}) => (
 class Clanok extends Component {
 
   async componentDidMount() {
-    this.props.fetchArticle(this.props.match.params.clanok);
+    this.props.fetchArticle(this.props.match.params.slug);
   }
 
   componentWillUnmount() {
