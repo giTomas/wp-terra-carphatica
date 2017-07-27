@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
+import { createMarkup } from '../helpers/';
 import {
   articleReset,
   articleLoader,
 } from '../actionCreators/article';
 import { getIdAuthor } from '../selectors/';
 
-function createMarkup(markup) {
-  return {
-    __html: markup,
-  }
-}
+
 
 const Article = ({article}) => (
   <div>
@@ -23,7 +20,7 @@ const Article = ({article}) => (
 class Clanok extends Component {
 
   async componentDidMount() {
-    this.props.fetchArticle(this.props.match.params.clanok);
+    this.props.fetchArticle(this.props.match.params.slug);
   }
 
   componentWillUnmount() {
