@@ -7,9 +7,9 @@ import {
 // import { RouteTransition } from 'react-router-transition';
 import Uvod from './components/uvod';
 import Sekcia from './components/sekcia';
-import DataLoader from './components/dataLoader';
 import WrappedClanok from './container/wrappedClanok';
 import WrappedClen from './container/wrappedClen';
+import WrappedDataLoader from './container/wrappedDataLoader';
 
 
 const Default = ({match}) => (
@@ -21,7 +21,7 @@ const Default = ({match}) => (
 class App extends Component {
   render() {
     return (
-      <DataLoader>
+      <WrappedDataLoader>
         <Router>
           <Switch>
             <Route exact path="/" component={Uvod} />
@@ -36,7 +36,7 @@ class App extends Component {
             <Route exact path="/sekcie/ochrana-prirody/:slug" component={Default} />
           </Switch>
         </Router>
-      </DataLoader>
+      </WrappedDataLoader>
     );
   }
 }

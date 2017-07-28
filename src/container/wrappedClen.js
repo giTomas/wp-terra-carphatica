@@ -5,6 +5,7 @@ import {
 } from '../actionCreators/member';
 import Member from '../presentational/member';
 import ComponentWithLoading from './componentWithLoading';
+import ComponentWithReset from './componentWithReset';
 
 const mapStateToProps = (state) => ({
   resource: state.member.data,
@@ -17,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   fetchResource: (id) => dispatch(memberLoader(id))
 });
 
-const WrappedClen = ComponentWithLoading(Member);
+const WrappedClen = ComponentWithReset(ComponentWithLoading(Member));
 
 export default connect(
   mapStateToProps,

@@ -9,8 +9,9 @@ import {
 import { getIdAuthor } from '../selectors/';
 import  Article from '../presentational/clanok';
 import ComponentWithLoading from './componentWithLoading';
+import ComponentWithReset from './componentWithReset';
 
-const WrappedClanok = ComponentWithLoading(Article);
+const WrappedClanok = ComponentWithReset(ComponentWithLoading(Article));
 
 const mapStateToProps = (state, props) => ({
   authors: getIdAuthor(state.members.data),
