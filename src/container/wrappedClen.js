@@ -6,8 +6,8 @@ import {
 import Member from '../presentational/member';
 import ComponentWithLoading from './componentWithLoading';
 
-const mapStateToProps = (state, props) => ({
-  member: state.member,
+const mapStateToProps = (state) => ({
+  resource: state.member.data,
 });
 
 const mapDispatchToProps = dispatch => ({
