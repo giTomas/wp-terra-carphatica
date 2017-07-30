@@ -24,34 +24,18 @@ const Header = () => (
   </header>
 );
 
+const Header2 = () => (
+  <header className="pageHeader">
+    
+  </header>
+);
+
 const Section = (content) => (
   <div key={content.slug} className="section">
     <Link to={`/sekcie/${content.slug}`}>{content.name}</Link>
   </div>
 )
-//
-// // const Uvod = () => (
-// class Uvod extends PureComponent {
-//
-//   render() {
-//     return (
-//       <div className="page">
-//         <Header />
-//         <section className="sections">
-//           {map(Section, this.props.categories.data)}
-//         </section>
-//         <section className="sections">
-//           {this.props.members.data.map(member => (
-//             <figure key={member.slug} >
-//               <img src={member.image} alt={member.name}/>
-//               <figcaption><Link className="member__link" to={`/clenovia/${member.slug}`}>{member.name}</Link></figcaption>
-//             </figure>
-//         ))}
-//         </section>
-//       </div>
-//     )
-//   }
-// };
+
 const Uvod = ({members, categories}) => (
   <div className="page">
     <Header />
