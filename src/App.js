@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 // import { RouteTransition } from 'react-router-transition';
-import Uvod from './components/uvod';
+import Uvod from './presentational/uvod';
 import Sekcia from './components/sekcia';
 import WrappedClanok from './container/wrappedClanok';
 import WrappedClen from './container/wrappedClen';
