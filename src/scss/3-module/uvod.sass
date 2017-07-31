@@ -19,7 +19,7 @@ $overlay-color: darken(rgb(115, 115, 115), 15%)
   width: 100vw
   height: 100vh
   position: relative
-  background-color: rgba($overlay-color, 0.65)
+  background-color: rgba($overlay-color, 0.40)
   display: flex
   justify-content: center
   align-items: center
@@ -34,7 +34,7 @@ $overlay-color: darken(rgb(115, 115, 115), 15%)
   display: block
   border: 3px solid white
   padding: 1em 1.1em
-  // animation: opacity 2s ease-out
+  animation: opacity 2s ease-out
 
 .pageTitle
   line-height: 1
@@ -46,13 +46,16 @@ $overlay-color: darken(rgb(115, 115, 115), 15%)
 .nav
 
 .navList
+  font-weight: 500
   display: flex
   margin-top: 0.5em
+  margin-left: -1.5em
   justify-content: center
   @media(max-width: 650px)
     flex-direction: column
     justify-content: flex-end
     align-items: flex-end
+    margin-left: 0
 
 .navItem
   display: flex
@@ -63,6 +66,7 @@ $overlay-color: darken(rgb(115, 115, 115), 15%)
 
 .navLink
   color: white
+
   white-space: nowrap
   text-decoration: none
   @media(max-width: 650px)

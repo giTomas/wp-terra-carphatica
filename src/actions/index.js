@@ -12,6 +12,9 @@ export const MEMBER						  = 'MEMBER';
 export const CATEGORIES         = 'CATEGORIES';
 export const ARTICLE 						= 'ARTICLE';
 
+export const BLOG 						  = 'BLOG';
+
+// FILTER DATA TYPES
 export const HISTORY            = 'HISTORIA';
 export const CULTURE            = 'KULTURA';
 export const NATURE             = 'PRIRODA';

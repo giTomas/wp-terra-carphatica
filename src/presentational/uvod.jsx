@@ -19,6 +19,10 @@ const Uvod = () => (
             </li>
             <li className="navItem">
               <span className="arrow">-></span>
+              <Link className="navLink" to="/clenovia">Členovia</Link>
+            </li>
+            <li className="navItem">
+              <span className="arrow">-></span>
               <Link className="navLink" to="/o-nas">O nás</Link>
             </li>
             <li className="navItem">
