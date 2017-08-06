@@ -5,6 +5,7 @@ import member from '../reducers/memberReducer';
 import categories from '../reducers/categoriesReducer';
 import {priroda, kultura, historia, ochrana } from '../reducers/categoryReducer';
 import article from '../reducers/articleReducer';
+import posts from '../reducers/blogPostsReducer';
 
 const sekcie = combineReducers({
   priroda,
@@ -18,7 +19,7 @@ const rootReducer = combineReducers({
   member,
   categories,
   article,
-  sekcie
+  posts
 });
 
 const store = createStore(

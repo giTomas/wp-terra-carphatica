@@ -12,7 +12,7 @@ export const MEMBER						  = 'MEMBER';
 export const CATEGORIES         = 'CATEGORIES';
 export const ARTICLE 						= 'ARTICLE';
 
-export const BLOG 						  = 'BLOG';
+export const POSTS						  = 'POSTS';
 
 // FILTER DATA TYPES
 export const HISTORY            = 'HISTORIA';
