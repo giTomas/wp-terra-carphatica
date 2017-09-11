@@ -14,8 +14,11 @@ class DataLoader extends Component {
   render() {
 
     return (
-      <div className={!this.props.success ? 'page-loading' : 'page'}>
-        { this.props.success ? this.props.children : <p>Loading...</p> }
+      // <div className={!this.props.success ? 'page-loading' : 'page'}>
+      //   { this.props.success ? this.props.children : <p>Loading...</p> }
+      // </div>
+      <div className='page'>
+        {this.props.children}
       </div>
     )
   }

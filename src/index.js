@@ -5,8 +5,9 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './css/index.css';
 // import bg from './assets/bg-2.jpg';
-import store from './store/store';
+import configureStore from './store/store';
 
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
