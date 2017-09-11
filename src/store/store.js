@@ -5,6 +5,7 @@ import member from '../reducers/memberReducer';
 import categories from '../reducers/categoriesReducer';
 import {priroda, kultura, historia, ochrana } from '../reducers/categoryReducer';
 import article from '../reducers/articleReducer';
+import posts from '../reducers/blogPostsReducer';
 import { loadState, saveState } from '../localStorage';
 
 // app doesn't need to know exact config
@@ -17,13 +18,13 @@ const configureStore = () => {
     ochrana,
   })
 
-  const rootReducer = combineReducers({
-    members,
-    member,
-    categories,
-    article,
-    sekcie,
-  });
+const rootReducer = combineReducers({
+  members,
+  member,
+  categories,
+  article,
+  posts
+});
 
   const store = createStore(
     rootReducer,
