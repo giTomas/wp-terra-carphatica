@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-sass": "^4.5.3",
+    "normalizr": "^3.2.3",
     "prop-types": "^15.5.10",
     "ramda": "^0.24.1",
     "react": "^15.6.1",

@@ -55,7 +55,7 @@ export const createAction = createSelector(
   (slug) => slug.replace(/-\S+/, '').toUpperCase()
 );
 
-export const createHash = createSelector(
-  [getSlugCategory],
-  (slug) => slug.replace(/-\S+/, '')
-)
+// export const createHash = createSelector(
+//   [getSlugCategory],
+//   (slug) => slug.replace(/-\S+/, '')
+// )

@@ -5,8 +5,8 @@ import {
   Route,
 } from 'react-router-dom';
 import Uvod from './presentational/uvod';
-import Sekcia from './components/sekcia';
-import WrappedClanok from './container/wrappedClanok';
+// import Sekcia from './components/sekcia';
+import WrappedPost from './container/wrappedPost';
 import WrappedClen from './container/wrappedClen';
 import WrappedPosts from './container/wrappedPosts';
 import WrappedDataLoader from './container/wrappedDataLoader';
@@ -36,7 +36,7 @@ class App extends Component {
             <Route path="/kontakt" component={Default} />
             <Route path="/clenovia" component={Default} />
             <Route exact path="/blog" component={WrappedPosts} />
-            <Route exact path="/blog/:slug" component={Default} />
+            <Route exact path="/blog/:slug" component={WrappedPost} />
             <Route path="/clenovia/:slug" component={WrappedClen} />
             {/* <Route exact path="/sekcie/:sekcia" component={Sekcia} />
             <Route exact path="/sekcie/priroda/:slug" component={WrappedClanok} />

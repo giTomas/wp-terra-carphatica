@@ -11,7 +11,7 @@ import  Article from '../presentational/clanok';
 import ComponentWithLoading from './componentWithLoading';
 import ComponentWithReset from './componentWithReset';
 
-const WrappedClanok = ComponentWithReset(ComponentWithLoading(Article));
+const WrappedPost = ComponentWithReset(ComponentWithLoading(Article));
 
 const mapStateToProps = (state, props) => ({
   authors: getIdAuthor(state.members.data),
@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(WrappedClanok);
+)(WrappedPost);
