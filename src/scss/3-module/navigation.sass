@@ -17,3 +17,73 @@
   text-decoration: none
   padding: 0.5em 0 0.5em 1em
   display: block
+
+.navHeaderContainer
+  background-color: $primary-bg-color
+  // background-color: $nav-bar-color
+  color: $decoration-color
+  // color: $primary-bg-color
+  border-bottom: 2px solid $decoration-color
+  box-shadow: 0px 0px 4px lighten(rgba(black, 0.5), 40%)
+  // border-bottom: 2px solid black
+  // margin-bottom: $vertical-rhytm
+
+.navHeaderContent
+  padding-top: $vertical-rhytm / 2
+  display: flex
+  justify-content: space-between
+  align-items: baseline
+
+  @media(max-width: 600px)
+    display: block
+
+.bold
+  font-weight: bold
+
+.navHeaderTitle
+  font-size: $big-font-size
+  font-weight: bold
+  margin-bottom: $vertical-rhytm / 2
+  // color: $decoration-color
+  white-space: nowrap
+  letter-spacing: 0.03em
+  margin-right: $vertical-rhytm
+  @media(max-width: 450px)
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+
+.navList
+  display: flex
+  // flex-wrap: wrap
+  @media(max-width: 450px)
+    justify-content: center
+    flex-wrap: wrap
+
+.navItem
+
+.pageNavLink
+  text-decoration: none
+  font-size: $base-font-size
+  color: $decoration-color
+  font-weight: 500
+  white-space: nowrap
+  transition: color 0.25s ease
+  @media(max-width: 770px)
+    margin-bottom: $vertical-rhytm/2
+  &:hover
+    color: $hovered-decoration-color
+
+// .active
+//   color: $decoration-color
+
+.navItem + .navItem
+  margin-left: $vertical-rhytm/2
+
+.postsContainer
+  padding-top: $vertical-rhytm
+  column-count: 2
+  min-height: 100vh
+  //something like min-width
+  column-width: 400px
+  column-gap: $vertical-rhytm

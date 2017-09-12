@@ -3,6 +3,7 @@ import { map } from 'ramda';
 // import { connect } from 'react-redux';
 import { createMarkup } from '../helpers/';
 import { Link } from 'react-router-dom';
+import PageNavigation from './navigation';
 
 // const Posts = ({resource}) => (
 //   <div className="article">
@@ -34,7 +35,8 @@ const Post =  ({thumb,excerpt,date,slug,author,title}) => (
 );
 
 const Posts = ({resource}) => (
-  <div className="pageBg">
+  <div className="pageBgPosts">
+    <PageNavigation />
     <ul className="l-wide postsContainer">
       {map(Post, resource)}
     </ul>
