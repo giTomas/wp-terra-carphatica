@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { map, curry, compose } from 'ramda';
 import { Link } from 'react-router-dom';
-import { catLoader } from '../actionCreators/category';
+import { catLoader } from '../redux/actionCreators/category';
 import { getIdAuthor, addData, createAction, createHash } from '../selectors/';
 
 

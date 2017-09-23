@@ -55,7 +55,7 @@ body {
   line-height: 1.55; }
 
 .l-wide {
-  max-width: calc(1200px - 4.03rem);
+  max-width: calc(1400px - 4.03rem);
   margin-left: auto;
   margin-right: auto;
   padding-left: 2.015rem;
@@ -96,11 +96,10 @@ body {
 .navHeaderContainer {
   background-color: #fbfbfb;
   color: #a6b653;
-  border-bottom: 2px solid #a6b653;
   box-shadow: 0px 0px 4px rgba(102, 102, 102, 0.5); }
 
 .navHeaderContent {
-  padding-top: 1.0075rem;
+  padding-top: 0.50375rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline; }
@@ -114,7 +113,6 @@ body {
 .navHeaderTitle {
   font-size: 2.031rem;
   font-weight: bold;
-  margin-bottom: 1.0075rem;
   white-space: nowrap;
   letter-spacing: 0.03em;
   margin-right: 2.015rem; }
@@ -147,13 +145,6 @@ body {
 .navItem + .navItem {
   margin-left: 1.0075rem; }
 
-.postsContainer {
-  padding-top: 2.015rem;
-  column-count: 2;
-  min-height: 100vh;
-  column-width: 400px;
-  column-gap: 2.015rem; }
-
 @keyframes opacity {
   0% {
     opacity: 0; }
@@ -166,7 +157,7 @@ body {
   overflow-Y: hidden; }
 
 .pageBgImage {
-  background-image: url("../assets/hero_karpaty.jpg");
+  background-image: url("../../assets/hero_karpaty.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -255,6 +246,13 @@ body {
   100% {
     opacity: 1; } }
 
+.postsContainer {
+  padding-top: 2.015rem;
+  column-count: 3;
+  min-height: 100vh;
+  column-width: 300px;
+  column-gap: 2.015rem; }
+
 .post {
   background-color: #fbfbfb;
   -webkit-column-break-inside: avoid;
@@ -300,7 +298,7 @@ body {
 
 .postTitle {
   font-weight: bold;
-  color: #a6b653;
+  color: #262626;
   line-height: 1;
   transition: color 0.25s ease-out;
   padding-top: 1.0075rem;
@@ -330,4 +328,4 @@ body {
   font-size: 1.04rem; }
 
 .isActive {
-  color: red; }
+  color: blue; }

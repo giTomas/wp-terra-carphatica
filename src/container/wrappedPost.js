@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {
   articleReset,
   articleLoader,
-} from '../actionCreators/article';
+} from '../redux/actionCreators/article';
 import { getIdAuthor } from '../selectors/';
 import  Article from '../presentational/clanok';
 import ComponentWithLoading from './componentWithLoading';

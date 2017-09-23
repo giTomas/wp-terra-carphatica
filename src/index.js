@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import './css/index.css';
-// import bg from './assets/bg-2.jpg';
-import configureStore from './store/store';
+import './style/css/index.css';
+import configureStore from './redux/';
+import fetchJson from './http/fetch/';
 
 const store = configureStore();
 

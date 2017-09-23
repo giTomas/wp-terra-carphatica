@@ -5,7 +5,6 @@ import {
   Route,
 } from 'react-router-dom';
 import Uvod from './presentational/uvod';
-// import Sekcia from './components/sekcia';
 import WrappedPost from './container/wrappedPost';
 import WrappedClen from './container/wrappedClen';
 import WrappedPosts from './container/wrappedPosts';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { postsLoader } from '../actionCreators/posts';
+import { postsLoader } from '../redux/actionCreators/posts';
 import { getIdAuthor } from '../selectors/';
 import  Posts from '../presentational/posts';
 import ComponentWithLoading from './componentWithLoading';

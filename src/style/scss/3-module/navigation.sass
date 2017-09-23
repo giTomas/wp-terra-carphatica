@@ -23,13 +23,13 @@
   // background-color: $nav-bar-color
   color: $decoration-color
   // color: $primary-bg-color
-  border-bottom: 2px solid $decoration-color
+  // border-bottom: 2px solid $decoration-color
   box-shadow: 0px 0px 4px lighten(rgba(black, 0.5), 40%)
   // border-bottom: 2px solid black
   // margin-bottom: $vertical-rhytm
 
 .navHeaderContent
-  padding-top: $vertical-rhytm / 2
+  padding-top: $vertical-rhytm / 4
   display: flex
   justify-content: space-between
   align-items: baseline
@@ -43,7 +43,7 @@
 .navHeaderTitle
   font-size: $big-font-size
   font-weight: bold
-  margin-bottom: $vertical-rhytm / 2
+  // margin-bottom: $vertical-rhytm 
   // color: $decoration-color
   white-space: nowrap
   letter-spacing: 0.03em
@@ -79,11 +79,3 @@
 
 .navItem + .navItem
   margin-left: $vertical-rhytm/2
-
-.postsContainer
-  padding-top: $vertical-rhytm
-  column-count: 2
-  min-height: 100vh
-  //something like min-width
-  column-width: 400px
-  column-gap: $vertical-rhytm

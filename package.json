@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash.throttle": "^4.1.1",
     "node-sass": "^4.5.3",
     "normalizr": "^3.2.3",
     "prop-types": "^15.5.10",
@@ -25,6 +26,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "styles": "node-sass --include-path ./node_modules/ ./src/scss/index.scss -w  -o ./src/css"
+    "styles": "node-sass --include-path ./node_modules/ ./src/style/scss/index.scss -w  -o ./src/style/css"
   }
 }
