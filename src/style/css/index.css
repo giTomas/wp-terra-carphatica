@@ -95,11 +95,10 @@ body {
 
 .navHeaderContainer {
   background-color: #fbfbfb;
-  color: #a6b653;
+  color: #262626;
   box-shadow: 0px 0px 4px rgba(102, 102, 102, 0.5); }
 
 .navHeaderContent {
-  padding-top: 0.50375rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline; }
@@ -131,8 +130,8 @@ body {
 
 .pageNavLink {
   text-decoration: none;
-  font-size: 1.3rem;
-  color: #a6b653;
+  font-size: 1.04rem;
+  color: #262626;
   font-weight: 500;
   white-space: nowrap;
   transition: color 0.25s ease; }
@@ -140,7 +139,7 @@ body {
     .pageNavLink {
       margin-bottom: 1.0075rem; } }
   .pageNavLink:hover {
-    color: #687331; }
+    color: #a6b653; }
 
 .navItem + .navItem {
   margin-left: 1.0075rem; }
@@ -248,9 +247,9 @@ body {
 
 .postsContainer {
   padding-top: 2.015rem;
-  column-count: 3;
+  column-count: 4;
   min-height: 100vh;
-  column-width: 300px;
+  column-width: 250px;
   column-gap: 2.015rem; }
 
 .post {
@@ -268,13 +267,9 @@ body {
   text-decoration: none; }
 
 .postHoverGroup:hover .postTitle {
-  color: #687331; }
-
-.postHoverGroup:hover .postImage {
-  transform: translate3d(0, -50%, 0) scale3d(1.2, 1.2, 1); }
+  color: #a6b653; }
 
 .postFigure {
-  height: 250px;
   width: calc(100% + 2.015rem);
   margin-left: -1.0075rem;
   margin-right: -1.0075rem;
@@ -286,15 +281,9 @@ body {
 
 .postImage {
   display: block;
-  height: 100%;
   width: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
-  transform: translate3d(0, -50%, 0); }
+  width: 100%; }
 
 .postTitle {
   font-weight: bold;
@@ -325,7 +314,149 @@ body {
   color: #262626;
   line-height: 1.55;
   font-family: 'Slabo 13px', serif;
+  font-size: 0.832rem; }
+
+.articleBg {
+  background-color: #fcfcfc;
+  animation: opacity 2s ease-out;
+  overflow-Y: hidden; }
+
+@keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.articleWrapper {
+  max-width: 1100px;
+  margin: 0 auto; }
+  @media (max-width: 500px) {
+    .articleWrapper {
+      padding: 1.0075rem; } }
+
+.articleHeader {
+  display: flex;
+  align-items: flex-end;
+  width: 100vw;
+  height: 90vh;
+  margin-bottom: 2.015rem;
+  background-image: url("https://raw.githubusercontent.com/giTomas/images/master/imgs/netopiere_full.JPG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; }
+
+.articleHgContainer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  color: #f9f9f9;
+  padding-top: 1.0075rem;
+  padding-bottom: 2.015rem; }
+
+.articleData {
+  display: flex;
+  margin-bottom: 1rem; }
+
+.articleAuthor,
+.articleDate {
+  font-size: 1.3rem;
+  font-weight: 500; }
+
+.articleDate {
+  margin-left: 2.015rem; }
+
+.articleTitle {
+  font-size: 3.174rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  line-height: 1; }
+
+.l-content {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 2.015rem;
+  padding-right: 2.015rem;
+  max-width: calc(800px + 2*2.015rem); }
+  @media (max-width: 500px) {
+    .l-content {
+      padding-left: 1.0075rem;
+      padding-right: 1.0075rem; } }
+
+.articleContainer {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 2.015rem;
+  padding-right: 2.015rem;
+  max-width: calc(800px + 2*2.015rem); }
+  @media (max-width: 500px) {
+    .articleContainer {
+      padding-left: 1.0075rem;
+      padding-right: 1.0075rem; } }
+
+.articleParagraph {
+  line-height: 1.55;
+  font-family: 'Slabo 13px', serif;
+  font-size: 1.3rem;
+  margin-bottom: 2.015rem; }
+
+.articleSubtitle {
+  font-size: 1.625rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin: 1.0075rem 0;
+  color: #262626; }
+
+.sources {
+  margin-bottom: 0.50375rem;
   font-size: 1.04rem; }
+
+.articleFigure {
+  margin-bottom: 2.015rem; }
+  @media (max-width: 500px) {
+    .articleFigure {
+      max-width: calc(100% + 2.015rem);
+      margin-left: -1.0075rem;
+      margin-right: -1.0075rem; } }
+
+.articleFigcaption {
+  color: #262626;
+  line-height: 1.25; }
+  @media (max-width: 500px) {
+    .articleFigcaption {
+      padding-left: 1.0075rem;
+      padding-right: 1.0075rem; } }
+
+.articleImageCredits {
+  color: grey; }
+
+.flexFigure {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start; }
+
+.artticleImage {
+  display: block;
+  object-fit: cover;
+  height: auto;
+  margin-bottom: 0.50375rem; }
+
+.fullSizeImage {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 80vh;
+  margin-bottom: 2.015rem;
+  background-image: url("https://raw.githubusercontent.com/giTomas/images/master/imgs/netopiere_full.JPG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; }
+
+.standardImage {
+  max-width: 100%; }
 
 .isActive {
   color: blue; }

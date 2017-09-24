@@ -1,4 +1,4 @@
-.pageBg
+.articleBg
   background-color: darken(white, 1%)
   animation: opacity 2s ease-out
   overflow-Y: hidden
@@ -14,83 +14,6 @@
   margin: 0 auto
   @media(max-width: 500px)
     padding: $vertical-rhytm / 2
-
-.navHeaderContainer
-  // width: 100%
-  // position: fixed
-  // top: 0
-  // left: 0
-  // right: 0
-  // width: 100vw
-  // background-color: $primary-bg-color
-  color: $decoration-color
-  border-bottom: 2px solid $decoration-color
-  // box-shadow: 0px 2px 3px rgba(black, 0.3)
-  box-shadow: 0px 0px 3px darken(rgba($decoration-color, 0.65), 5%)
-  // border-bottom: 2px solid black
-  // margin-bottom: $vertical-rhytm
-
-.l-wide
-  max-width: calc(1400px - #{$vertical-rhytm*2})
-  margin-left: auto
-  margin-right: auto
-  padding-left: $vertical-rhytm
-  padding-right: $vertical-rhytm
-  @media(max-width: 600px)
-    padding-left: $vertical-rhytm / 2
-    padding-right: $vertical-rhytm / 2
-  @media(max-width: 450px)
-    padding-left: $vertical-rhytm / 4
-    padding-right: $vertical-rhytm / 4
-
-.navHeaderContent
-  z-index: 100
-  padding-top: $vertical-rhytm / 2
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
-  align-items: baseline
-
-  // @media(max-width: 600px)
-    // display: block
-
-.bold
-  font-weight: bold
-
-.navHeaderTitle
-  font-size: $big-font-size
-  font-weight: bold
-  margin-bottom: $vertical-rhytm/2
-  // color: $decoration-color
-  white-space: nowrap
-  letter-spacing: 0.03em
-  @media(max-width: 450px)
-    margin-left: auto
-    margin-right: auto
-
-.navList
-  display: flex
-  // flex-wrap: wrap
-  @media(max-width: 500px)
-    justify-content: center
-    flex-wrap: wrap
-
-.navItem
-  font-size: $base-font-size
-  // color: $decoration-color
-  font-weight: 500
-  white-space: nowrap
-  cursor: pointer
-  transition: color 0.25s ease
-  @media(max-width: 770px)
-    margin-bottom: $vertical-rhytm/2
-  &:hover
-    color: $hovered-decoration-color
-.active
-  color: $hovered-decoration-color
-
-.navItem + .navItem
-  margin-left: $vertical-rhytm/2
 
 .articleHeader
   display: flex
@@ -129,9 +52,10 @@
 
 .articleTitle
   // font-size: calc(#{$big-font-size} + (#{$very-large-size} - #{$big-size}) * ((100vw - 20rem) / (75 - 20)))
-  font-size: $extra-large-font-size
+  font-size: $very-large-font-size
   font-weight: bold
   letter-spacing: 0.03em
+  line-height: 1
   // margin-bottom: $vertical-rhytm*1.5
 
 .l-content
@@ -144,31 +68,28 @@
     padding-left: $vertical-rhytm / 2
     padding-right: $vertical-rhytm / 2
 
-
 .articleContainer
   margin-right: auto
   margin-left: auto
+  padding-left: $vertical-rhytm
+  padding-right: $vertical-rhytm
+  max-width: calc(800px + 2*#{$vertical-rhytm})
+  @media(max-width: 500px)
+    padding-left: $vertical-rhytm / 2
+    padding-right: $vertical-rhytm / 2
 
-p,
-.articleText
+.articleParagraph
   line-height: 1.55
   font-family: 'Slabo 13px', serif
   font-size: $base-font-size
-  // text-align: justify
-  // text-justify: inter-character
-  // font-size: 1.33em
-  // font-size: calc(#{$small-font-size} + (#{$base-size} - #{$small-size}) * ((100vw - 25rem) / (75 - 25)))
-
-
   margin-bottom: $vertical-rhytm
-  color: $basic-font-color
 
-h4
+.articleSubtitle
   // font-size: calc(#{$base-font-size} + (#{$medium-size} - #{$base-size}) * ((100vw - 20rem) / (75 - 20)))
-  font-size: $base-font-size
+  font-size: $medium-font-size
   font-weight: bold
   letter-spacing: 0.03em
-  margin-bottom: $vertical-rhytm/2
+  margin: $vertical-rhytm/2 0
   color: $basic-font-color
 
 .sources
@@ -198,7 +119,6 @@ h4
   justify-content: flex-end
   align-items: flex-start
 
-img,
 .artticleImage
   display: block
   object-fit: cover

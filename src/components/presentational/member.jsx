@@ -1,5 +1,5 @@
 import React from 'react';
-import { createMarkup } from '../helpers/';
+import { createMarkup } from '../../helpers/';
 
 const Member = ({resource}) => (
   <div className="member">

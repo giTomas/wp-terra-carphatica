@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './style/css/index.css';
 import configureStore from './redux/';
-import fetchJson from './http/fetch/';
 
 const store = configureStore();
 

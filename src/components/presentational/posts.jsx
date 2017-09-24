@@ -1,7 +1,7 @@
 import React from 'react';
 import { map } from 'ramda';
 // import { connect } from 'react-redux';
-import { createMarkup } from '../helpers/';
+import { createMarkup } from '../../helpers/';
 import { Link } from 'react-router-dom';
 import PageNavigation from './navigation';
 

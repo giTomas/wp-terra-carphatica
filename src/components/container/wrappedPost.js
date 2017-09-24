@@ -1,12 +1,9 @@
-// import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { createMarkup } from '../helpers/';
 import {
   articleReset,
   articleLoader,
-} from '../redux/actionCreators/article';
-import { getIdAuthor } from '../selectors/';
+} from '../../redux/actionCreators/article';
+import { getIdAuthor } from '../../selectors/';
 import  Article from '../presentational/clanok';
 import ComponentWithLoading from './componentWithLoading';
 import ComponentWithReset from './componentWithReset';

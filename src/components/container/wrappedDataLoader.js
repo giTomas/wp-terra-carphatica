@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
-import {
-  membersCategoriesLoader,
-} from '../redux/actionCreators/membersCategories';
+import membersLoader from '../../redux/actionCreators/members';
 import PageLoading from '../presentational/pageLoading'
-import { checkSuccess } from '../selectors/';
+import { checkSuccess } from '../../selectors/';
 import ComponentWithLoading from './componentWithLoading';
 
 const mapStateToProps = state => ({
@@ -11,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchResource: () => dispatch(membersCategoriesLoader())
+  fetchResource: () => dispatch(membersLoader())
 });
 
 const WrappedDataLoader = ComponentWithLoading(PageLoading)

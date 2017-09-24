@@ -21,7 +21,7 @@
 .navHeaderContainer
   background-color: $primary-bg-color
   // background-color: $nav-bar-color
-  color: $decoration-color
+  color: $basic-font-color
   // color: $primary-bg-color
   // border-bottom: 2px solid $decoration-color
   box-shadow: 0px 0px 4px lighten(rgba(black, 0.5), 40%)
@@ -29,7 +29,7 @@
   // margin-bottom: $vertical-rhytm
 
 .navHeaderContent
-  padding-top: $vertical-rhytm / 4
+  // padding-top: $vertical-rhytm / 4
   display: flex
   justify-content: space-between
   align-items: baseline
@@ -43,7 +43,7 @@
 .navHeaderTitle
   font-size: $big-font-size
   font-weight: bold
-  // margin-bottom: $vertical-rhytm 
+  // margin-bottom: $vertical-rhytm
   // color: $decoration-color
   white-space: nowrap
   letter-spacing: 0.03em
@@ -64,15 +64,15 @@
 
 .pageNavLink
   text-decoration: none
-  font-size: $base-font-size
-  color: $decoration-color
+  font-size: $small-font-size
+  color: $basic-font-color
   font-weight: 500
   white-space: nowrap
   transition: color 0.25s ease
   @media(max-width: 770px)
     margin-bottom: $vertical-rhytm/2
   &:hover
-    color: $hovered-decoration-color
+    color: $decoration-color
 
 // .active
 //   color: $decoration-color

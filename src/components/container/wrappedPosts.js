@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { postsLoader } from '../redux/actionCreators/posts';
-import { getIdAuthor } from '../selectors/';
+import { postsLoader } from '../../redux/actionCreators/posts';
+import { getIdAuthor } from '../../selectors/';
 import  Posts from '../presentational/posts';
 import ComponentWithLoading from './componentWithLoading';
 // import { createMarkup } from '../helpers/';
