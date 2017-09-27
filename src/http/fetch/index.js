@@ -10,12 +10,7 @@ const GETJson = {
   })
 };
 
-const fetchJson = async (url, endpoint='', init=GETJson) => {
-
-  const response = await fetch(
-    url+endpoint,
-    init,
-  );
+const handleResponse = (response) => {
 
   if (!response.ok) {
     throw Error(response.statusText);
@@ -25,21 +20,19 @@ const fetchJson = async (url, endpoint='', init=GETJson) => {
     throw Error('Content-type is not JSON.')
   }
 
-  const data = await response.json();
+  return response.json();
+};
+
+const fetchJson = async (url, endpoint='', init=GETJson) => {
+
+  const response = await fetch(
+    url+endpoint,
+    init,
+  );
+
+  const data = handleResponse(response);
 
   return data;
 }
-
-// const handleError = (res) => {
-//   if (!res.ok) {
-//     throw Error(response.statusText);
-//   }
-//   if (!response.headers.get('content-type').includes('application/json')) {
-//     throw Error('Content-type is not JSON.')
-//   }
-//   return res;
-// }
-
-// const
 
 export default fetchJson;

@@ -25,9 +25,9 @@ const configureStore = () => {
     applyMiddleware(thunk),
   );
 
-  store.subscribe(throttle(() => {
-    saveState(store.getState());
-  }), 1000);
+  // store.subscribe(throttle(() => {
+  //   saveState(store.getState());
+  // }), 1000);
 
  return store;
 };

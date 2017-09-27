@@ -49,7 +49,7 @@ html {
   text-rendering: geometricPrecision; }
 
 html {
-  font-size: calc(13.312px + 3.328 * ((100vw - 300px) / 1100)); }
+  font-size: calc(13.312px + 3.328 * ((100vw - 350px) / 1100)); }
 
 body {
   line-height: 1.55; }

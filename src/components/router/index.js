@@ -22,7 +22,6 @@ const Default = ({match}) => (
   </div>
 );
 
-
 const AppRouter = () => (
   <Router>
     <Switch>
