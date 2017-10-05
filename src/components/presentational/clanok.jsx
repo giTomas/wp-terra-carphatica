@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createMarkup } from '../../helpers/';
 import PageNavigation from './navigation';
 
@@ -15,5 +16,9 @@ const Article = ({resource}) => (
     </article>
 </div>
 )
+
+Article.propTypes = {
+  resource: PropTypes.objectOf(PropTypes.string)
+}
 
 export default Article;
