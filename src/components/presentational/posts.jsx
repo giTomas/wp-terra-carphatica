@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { map } from 'ramda';
 // import { connect } from 'react-redux';
 import { createMarkup } from '../../helpers/';
@@ -30,17 +31,27 @@ const Post =  ({thumb,excerpt,date,slug,author,title}) => (
         <h4 className="postDate">{date}</h4>
       </div>
       <p className="postExcerpt">{excerpt}</p>
-
     </li>
 );
+
+Post.propTypes = {
+  resource: PropTypes.objectOf(PropTypes.string)
+}
+
+const mapToPost = map(Post)
 
 const Posts = ({resource}) => (
   <div className="pageBgPosts">
     <PageNavigation />
     <ul className="l-wide postsContainer">
-      {map(Post, resource)}
+      {mapToPost(resource)}
     </ul>
   </div>
 );
+
+Posts.propTypes = {
+  resource: PropTypes.objectOf(PropTypes.string)
+}
+
 
 export default Posts;

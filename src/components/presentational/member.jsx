@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createMarkup } from '../../helpers/';
 
 const Member = ({resource}) => (
@@ -7,5 +8,10 @@ const Member = ({resource}) => (
     <div className="memberText" dangerouslySetInnerHTML={createMarkup(resource.content)} />
   </div>
 );
+
+Member.propTypes = {
+  resource: PropTypes.objectOf(PropTypes.string)
+}
+
 
 export default Member;
