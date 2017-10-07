@@ -1,7 +1,6 @@
+const url = 'http://localhost/wp-json/wp/v2'
 
-const makeUrls = () => {
-
-  const url = 'http://localhost/wp-json/wp/v2'
+const makeUrls = (url=url) => {
 
   return ({
     articles: `${url}/posts?fields=id,slug,author,date,title,excerpt,thumb,acf&per_page=15&page=`,
