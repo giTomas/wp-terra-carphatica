@@ -1,5 +1,4 @@
 
-
 const makeUrls = () => {
 
   const url = 'http://localhost/wp-json/wp/v2'
